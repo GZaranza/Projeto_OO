@@ -20,9 +20,7 @@ public class Anuncio {
 	
 	
 
-	public String toString() {
-		return "----------Anuncio----------\n"+"Numero do anuncio: "+id_anuncio+"\nCarro: "+carro.getModelo()+"\nValor: R$"+valor+"\nLoja: "+loja.getNome()+"\nEndereco: "+loja.getEndereco().getLogradouro()+" "+loja.getEndereco().getComplemento()+"\nData de anuncio: "+dt_anuncio+"\n";
-	}
+	
 	
 	public Carro getCarro() {
 		return carro;
@@ -62,6 +60,10 @@ public class Anuncio {
 
 	public void setId_anuncio(int id_anuncio) {
 		this.id_anuncio = id_anuncio;
+	}
+	
+	public String toString() {
+		return "----------Anuncio----------\n"+"Numero do anuncio: "+id_anuncio+"\nCarro: "+carro.getModelo()+"\nValor: R$"+valor+"\nLoja: "+loja.getNome()+"\nEndereco: "+loja.getEndereco().getLogradouro()+" "+loja.getEndereco().getComplemento()+"\nData de anuncio: "+dt_anuncio+"\n";
 	}
 	
 	public void anunciar() {
