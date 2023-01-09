@@ -18,10 +18,6 @@ public class Anuncio {
 		this.dt_anuncio = dt_anuncio;
 	}
 	
-	
-
-	
-	
 	public Carro getCarro() {
 		return carro;
 	}

@@ -81,10 +81,6 @@ public class Carro {
 	public void setKilometragem(int kilometragem) {
 		this.kilometragem = kilometragem;
 	}
-	
-	public String toString() {
-		return "-----------Carro------------\nModelo: "+ modelo+ "\nMarca: "+ marca+ "\nAno: "+ano+ "\nCor: "+cor+ "\nPlaca: "+placa+ "\nDescricao: "+descricao+"\n";
-	}
 
 	public int getId_carro() {
 		return id_carro;
@@ -100,6 +96,10 @@ public class Carro {
 
 	public void setLoja(Loja loja) {
 		this.loja = loja;
+	}
+	
+	public String toString() {
+		return "-----------Carro------------\nModelo: "+ modelo+ "\nMarca: "+ marca+ "\nAno: "+ano+ "\nCor: "+cor+ "\nPlaca: "+placa+ "\nDescricao: "+descricao+"\n";
 	}
 	
 	public void cadastrarCarro(Loja loj) {

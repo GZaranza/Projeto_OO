@@ -78,6 +78,10 @@ public class Venda {
 		this.loja_vend = loja_vend;
 	}
 	
+	public String toString(){
+		return "------------VENDA-----------\n"+" Carro: "+anuncio_venda.getCarro().getModelo()+"\n Loja: "+anuncio_venda.getLoja().getNome()+"\n Comprador: "+comprador.getNome()+"\n Data da venda: "+this.getDt_venda()+"\n Valor pago: "+this.getValor_pago()+"\n Forma de pagamento: "+this.getForma_pagamento()+"\n";
+	}
+	
 	public void vender() {
 		int qtd;
 		Loja loja_vend = anuncio_venda.getLoja();
@@ -89,7 +93,5 @@ public class Venda {
 		loja_vend.setNumVenda(qtd+1);
 	}
 	
-	public String toString(){
-		return "------------VENDA-----------\n"+" Carro: "+anuncio_venda.getCarro().getModelo()+"\n Loja: "+anuncio_venda.getLoja().getNome()+"\n Comprador: "+comprador.getNome()+"\n Data da venda: "+this.getDt_venda()+"\n Valor pago: "+this.getValor_pago()+"\n Forma de pagamento: "+this.getForma_pagamento()+"\n";
-	}
+
 }

@@ -79,6 +79,14 @@ public class Loja extends Conta {
 	public void setNumCarros(int numCarros) {
 		this.numCarros = numCarros;
 	}
+
+	public int getNumAnuncios() {
+		return numAnuncios;
+	}
+
+	public void setNumAnuncios(int numAnuncios) {
+		this.numAnuncios = numAnuncios;
+	}	
 	
 	public String toString() {
 		return "------Loja------\n"+"Loja: "+nome+"\nCNPJ: "+cnpj+"\nIE: "+insc_est+"\nEndereco: "+endereco.getLogradouro()+" "+endereco.getComplemento()+"\nNumero de carros na loja: "+this.getNumCarros()+"\n";
@@ -92,14 +100,6 @@ public class Loja extends Conta {
 		
 		return saida;
 	}
-
-	public int getNumAnuncios() {
-		return numAnuncios;
-	}
-
-	public void setNumAnuncios(int numAnuncios) {
-		this.numAnuncios = numAnuncios;
-	}	
 	
 	public String consultarAnuncios() {
 		String saida = "------ Lista de Anuncios da loja "+this.getNome()+" ------\n" ;
