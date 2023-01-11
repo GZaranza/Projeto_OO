@@ -46,13 +46,8 @@ public class TelaMenu implements ActionListener{
 		Object src = e.getSource();
 		
 		if(src == loja) {
-			JFrame testeLoja = new JFrame("Teste Loja");
-			JLabel msgLoja = new JLabel("VOCÊ SELECIONOU A OPÇÃO DE LOJA");
-			msgLoja.setBounds(120, 10, 150, 30);
-			testeLoja.add(msgLoja);
+			new TelaUsuLoja();
 			
-			testeLoja.setSize(400, 250);
-			testeLoja.setVisible(true);
 		}
 		
 		if(src == usuario) {
