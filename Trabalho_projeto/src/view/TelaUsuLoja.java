@@ -38,30 +38,42 @@ public class TelaUsuLoja implements ActionListener{
 		janela.setSize(400, 250);
 		janela.setVisible(true);
 		
+		carros.addActionListener(this);
+		anuncios.addActionListener(this);
+		vendas.addActionListener(this);
+		lojas.addActionListener(this);
+		
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TelaUsuLoja menu = new TelaUsuLoja();
 		carros.addActionListener(menu);
 		anuncios.addActionListener(menu);
 		vendas.addActionListener(menu);
 		lojas.addActionListener(menu);
-	}
+	}*/
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-Object src = e.getSource();
-		
-		if(src == carros) {
-			new TelaCarros();
-			
-		}
-		
-		if(src == lojas) {
-			//new TelaLojas();
-		}
+		Object src = e.getSource();
+				
+				if(src == carros) {
+					new TelaCarros();
+				}
+				
+				if(src == lojas) {
+					new TelaLojas();
+				}
+				
+				if(src == anuncios) {
+					new TelaAnuncios(1);//mudar para 1
+				}
+				
+				if(src == vendas) {
+					// TelaListaLojas();
+				}
 	}
 
 }

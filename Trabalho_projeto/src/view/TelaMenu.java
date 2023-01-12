@@ -51,13 +51,7 @@ public class TelaMenu implements ActionListener{
 		}
 		
 		if(src == usuario) {
-			JFrame testeUsu = new JFrame("Teste Loja");
-			JLabel msgUsu = new JLabel("VOCÊ SELECIONOU A OPÇÃO DE USUARIO");
-			msgUsu.setBounds(120, 10, 150, 30);
-			testeUsu.add(msgUsu);
-			
-			testeUsu.setSize(400, 250);
-			testeUsu.setVisible(true);
+			new TelaUsuPessoa();
 		}
 	}
 
