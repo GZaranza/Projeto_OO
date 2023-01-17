@@ -4,19 +4,23 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import control.ControleCarro;
+
 import java.awt.Font;
 import java.awt.event.*;
 
-public class TelaCarros implements ActionListener, ListSelectionListener {
+public class TelaListaCarros implements ActionListener, ListSelectionListener {
 
 	private JFrame janela = new JFrame("Carros");
 	private JLabel titulo = new JLabel("Carros cadastrados");
 	private JButton cadastroCarro = new JButton("Cadastrar");
 	private JButton refreshCarro = new JButton("Atualizar");
 	private JList<String> listaCarrosCadastrados = new JList<String>();
+	private static ControleCarro dados;
 	
 	
-	public TelaCarros() {
+	public TelaListaCarros(ControleCarro d) {
+		dados =d;
 		
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(90, 10, 250, 30);
@@ -34,6 +38,8 @@ public class TelaCarros implements ActionListener, ListSelectionListener {
 		
 		janela.setSize(400, 250);
 		janela.setVisible(true);
+		cadastroCarro.addActionListener(this);
+		refreshCarro.addActionListener(this);
 	}
 	
 	
@@ -41,7 +47,10 @@ public class TelaCarros implements ActionListener, ListSelectionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		Object src = e.getSource();
+		if(src == cadastroCarro) {
+			new TelaCarro().inserirEditarCarro(1, dados, this, 0);
+		}
 	}
 
 	@Override
