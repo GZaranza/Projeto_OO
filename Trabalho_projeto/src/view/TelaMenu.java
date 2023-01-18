@@ -5,16 +5,16 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-import control.ControleCarro;
-import controle.ControleDados;
 
+import control.*
+;
 public class TelaMenu implements ActionListener{
 	
 	private static JFrame janela = new JFrame("Sistema de venda de carros");
 	private static JLabel titulo = new JLabel("Menu Principal");
 	private static JButton loja = new JButton("Lojas");
 	private static JButton usuario = new JButton("Usuarios");
-	public static ControleCarro dados = new ControleCarro();
+	public static ControleDados dados = new ControleDados();
 	
 	public TelaMenu() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));

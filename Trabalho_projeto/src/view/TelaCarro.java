@@ -32,11 +32,11 @@ public class TelaCarro implements ActionListener{
 	private JButton botExcluir = new JButton("Excluir");
 	private JButton botSalvar = new JButton("Salvar");
 	private int opcao;
-	private static ControleCarro dados;
+	private static ControleDados dados;
 	private int posicao;
 	private String[] novoDado = new String [9];
 	
-	public void inserirEditarCarro(int op, ControleCarro d,TelaListaCarros p, int pos) {
+	public void inserirEditarCarro(int op, ControleDados d,TelaListaCarros p, int pos) {
 		
 		opcao = op;
 		posicao=pos;

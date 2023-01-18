@@ -2,7 +2,9 @@ package view;
 
 import javax.swing.*;
 
-import control.ControleCarro;
+
+import control.*;
+
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -16,7 +18,7 @@ public class TelaUsuLoja implements ActionListener{
 	private static JButton anuncios = new JButton("Anuncios");
 	private static JButton vendas = new JButton("Vendas");
 	private static JButton lojas = new JButton("Lojas");
-	public static ControleCarro dados = new ControleCarro();
+	public static ControleDados dados = new ControleDados();
 	
 	
 	

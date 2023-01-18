@@ -3,7 +3,7 @@ package pacote;
 public class Dados {
 
 	private Carro[] carros = new Carro[50];
-	private int qtdCarros = 1;
+	private int qtdCarros = 0;
 	
 	
 	public Carro[] getCarros() {
