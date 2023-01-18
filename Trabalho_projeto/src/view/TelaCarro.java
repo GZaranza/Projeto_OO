@@ -70,7 +70,7 @@ public class TelaCarro implements ActionListener{
 		labelLoja.setBounds(30, 230, 150, 25);
 		valorLoja.setBounds(180,230,180,25);
 		botSalvar.setBounds(30, 290, 150, 25);
-		
+		botExcluir.setBounds(210,290,150,25);
 		
 		this.janela.add(labelMarca);
 		this.janela.add(valorMarca);
@@ -89,6 +89,7 @@ public class TelaCarro implements ActionListener{
 		this.janela.add(labelLoja);
 		this.janela.add(valorLoja);
 		this.janela.add(botSalvar);
+		this.janela.add(botExcluir);
 		
 		this.janela.setLayout(null);
 		this.janela.setSize(500, 400);
@@ -97,6 +98,7 @@ public class TelaCarro implements ActionListener{
 		
 		}
 		botSalvar.addActionListener(this);
+		botExcluir.addActionListener(this);
 	}
 
 

@@ -27,4 +27,17 @@ public class ControleDados {
 		d.inserirEditarCarro(c, Integer.parseInt(dadosCarros[0]));
 		
 	}
+	
+	public boolean apagarCarro(int i) {
+		String carroExcluido = d.getCarros()[i].getModelo();
+		if(i == (d.getQtdCarros()-1)) {
+			d.setQtdCarros((d.getQtdCarros()-1));
+			d.getCarros()[d.getQtdCarros()] = null;
+			return true;
+		}
+		else {
+			int cont =0;
+			while(d.getCarros()[cont].getModelo().compareTo(carroExcluido)!=0);
+		}
+	}
 }
