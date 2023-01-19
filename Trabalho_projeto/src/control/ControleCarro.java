@@ -14,7 +14,7 @@ public class ControleCarro {
 	public String[] getModeloCarro() {
 		String[] s = new String[qtdCarros];
 		for(int i = 0; i< qtdCarros;i++) {
-			s[i]= c[i].getModelo();
+			s[i]= c[i].getModelo() +' '+ c[i].getAno();
 		}
 		return s;
 	}

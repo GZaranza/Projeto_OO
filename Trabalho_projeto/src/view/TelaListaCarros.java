@@ -22,6 +22,7 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 	
 	public TelaListaCarros(ControleDados d) {
 		dados =d;
+		
 		listaModelos = new ControleCarro(dados).getModeloCarro();
 		listaCarrosCadastrados = new JList<String>(listaModelos);
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -44,6 +45,7 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 		janela.setVisible(true);
 		cadastroCarro.addActionListener(this);
 		attListaCarro.addActionListener(this);
+		listaCarrosCadastrados.addListSelectionListener(this);
 	}
 	
 	
@@ -64,7 +66,9 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub
-		
+		Object src = e.getSource();
+		if(e.getValueIsAdjusting() && src == listaCarrosCadastrados) {
+			new TelaCarro().inserirEditarCarro(2, dados, this, listaCarrosCadastrados.getSelectedIndex());
+		}
 	}
-
 }

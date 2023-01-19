@@ -7,6 +7,10 @@ public class ControleDados {
 
 	private Dados d = new Dados();
 	
+	public ControleDados() {
+		d.dadosPreCadastrados();
+	}
+	
 	public Dados getDados() {
 		return d;
 	}
@@ -36,8 +40,17 @@ public class ControleDados {
 			return true;
 		}
 		else {
-			int cont =0;
-			while(d.getCarros()[cont].getModelo().compareTo(carroExcluido)!=0);
+			int aux =0;
+			while(d.getCarros()[aux].getModelo().compareTo(carroExcluido)!=0) {
+				aux++;
+			}
+			for(int b = aux;b<d.getQtdCarros()-1;b++) {
+				d.getCarros()[b]=null;
+				d.getCarros()[b]= d.getCarros()[b+1];
+			}
+			d.getCarros()[d.getQtdCarros()]=null;
+			d.setQtdCarros(d.getQtdCarros()-1);
+			return true;
 		}
 	}
 }

@@ -6,6 +6,12 @@ public class Dados {
 	private int qtdCarros = 0;
 	
 	
+	public void dadosPreCadastrados() {
+		carros[0] = new Carro("Chevrolet", "Celta", "2015/2016", "Branco", "PAE7474", "4 PORTAS",
+				74569);
+		qtdCarros = 1;
+	}
+	
 	public Carro[] getCarros() {
 		return carros;
 	}

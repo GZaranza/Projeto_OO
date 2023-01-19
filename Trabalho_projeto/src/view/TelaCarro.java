@@ -95,10 +95,66 @@ public class TelaCarro implements ActionListener{
 		this.janela.setSize(500, 400);
 		this.janela.setVisible(true);
 
+		botSalvar.addActionListener(this);
 		
 		}
-		botSalvar.addActionListener(this);
-		botExcluir.addActionListener(this);
+		else if(op==2) {
+			valorMarca = new JTextField(dados.getCarros()[pos].getMarca(),200);
+			valorModelo = new JTextField(dados.getCarros()[pos].getModelo(),200);
+			valorAno = new JTextField(dados.getCarros()[pos].getAno(),4);
+			valorCor = new JTextField(dados.getCarros()[pos].getCor(),200);
+			valorPlaca = new JTextField(dados.getCarros()[pos].getPlaca(),200);
+			valorKm = new JTextField(String.valueOf(dados.getCarros()[pos].getKilometragem()),6);
+			valorDesc = new JTextField(dados.getCarros()[pos].getDescricao(),200);
+			valorLoja = new JTextField(200);
+			
+			
+			labelMarca.setBounds(30, 20, 150, 25);
+			valorMarca.setBounds(180,20,180,25);
+			labelModelo.setBounds(30, 50, 150, 25);
+			valorModelo.setBounds(180,50,180,25);
+			labelAno.setBounds(30, 80, 150, 25);
+			valorAno.setBounds(180,80,180,25);
+			labelCor.setBounds(30, 110, 150, 25);
+			valorCor.setBounds(180,110,180,25);
+			labelPlaca.setBounds(30, 140, 150, 25);
+			valorPlaca.setBounds(180,140,180,25);
+			labelKm.setBounds(30, 170, 150, 25);
+			valorKm.setBounds(180,170,180,25);
+			labelDesc.setBounds(30, 200, 150, 25);
+			valorDesc.setBounds(180,200,180,25);
+			labelLoja.setBounds(30, 230, 150, 25);
+			valorLoja.setBounds(180,230,180,25);
+			botSalvar.setBounds(30, 290, 150, 25);
+			botExcluir.setBounds(210,290,150,25);
+			
+			this.janela.add(labelMarca);
+			this.janela.add(valorMarca);
+			this.janela.add(labelModelo);
+			this.janela.add(valorModelo);
+			this.janela.add(labelAno);
+			this.janela.add(valorAno);
+			this.janela.add(labelCor);
+			this.janela.add(valorCor);
+			this.janela.add(labelPlaca);
+			this.janela.add(valorPlaca);
+			this.janela.add(labelKm);
+			this.janela.add(valorKm);
+			this.janela.add(labelDesc);
+			this.janela.add(valorDesc);
+			this.janela.add(labelLoja);
+			this.janela.add(valorLoja);
+			this.janela.add(botSalvar);
+			this.janela.add(botExcluir);
+			
+			this.janela.setLayout(null);
+			this.janela.setSize(500, 400);
+			this.janela.setVisible(true);
+			
+			botSalvar.addActionListener(this);
+			botExcluir.addActionListener(this);
+		}
+		
 	}
 
 
@@ -108,25 +164,27 @@ public class TelaCarro implements ActionListener{
 		Object src = e.getSource();
 		if(src == botSalvar) {
 			
-			
-				
 				if(opcao == 1) {
 					novoDado[0] = Integer.toString(dados.getQtdCarros());	
+				}
+				
+				else {
+					novoDado[0]=Integer.toString(posicao);
 				}
 				novoDado[1] = valorMarca.getText();
 				novoDado[2] = valorModelo.getText();
 				novoDado[3] = valorAno.getText();
 				novoDado[4] = valorCor.getText();
 				novoDado[5] = valorPlaca.getText();
-				novoDado[8] = valorDesc.getText();
+				novoDado[6] = valorDesc.getText();
 				novoDado[7] = valorKm.getText();
 				dados.inserirEditarCarro(novoDado);
 				janela.dispose();
-			
-			
-				
 		}	
 				
-		
+		if(src== botExcluir) {
+			dados.apagarCarro(posicao);
+			janela.dispose();
+		}
 	}
 }
