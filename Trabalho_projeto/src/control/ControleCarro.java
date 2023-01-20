@@ -43,6 +43,9 @@ public class ControleCarro {
 		return c[i].getKilometragem();
 	}
 	
+	public Loja getLoja(int i) {
+		return c[i].getLoja();
+	}
 	
 	public int getQtdCarros() {
 		return qtdCarros;
@@ -52,6 +55,8 @@ public class ControleCarro {
 		this.qtdCarros = qtdCarros;
 	}
 	
+	
+
 	
 	
 	

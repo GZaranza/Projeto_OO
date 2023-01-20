@@ -69,11 +69,11 @@ public class TelaUsuLoja implements ActionListener{
 				}
 				
 				if(src == lojas) {
-					new TelaLojas();
+					new TelaLojas(dados);
 				}
 				
 				if(src == anuncios) {
-					new TelaAnuncios(1);//mudar para 1
+					new TelaListaAnuncios(dados,1);//mudar para 1
 				}
 				
 				if(src == vendas) {

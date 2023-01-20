@@ -66,7 +66,7 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub
-		Object src = e.getSource();
+		Object src = e.getSource();		
 		if(e.getValueIsAdjusting() && src == listaCarrosCadastrados) {
 			new TelaCarro().inserirEditarCarro(2, dados, this, listaCarrosCadastrados.getSelectedIndex());
 		}

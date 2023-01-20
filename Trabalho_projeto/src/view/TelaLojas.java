@@ -4,6 +4,10 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import control.ControleCarro;
+import control.ControleDados;
+import control.ControleLoja;
+
 import java.awt.Font;
 import java.awt.event.*;
 
@@ -13,10 +17,14 @@ public class TelaLojas implements ActionListener, ListSelectionListener{
 	private JButton cadastroLoja = new JButton("Cadastrar");
 	private JButton refreshLoja = new JButton("Atualizar");
 	private JList<String> listaLojaCadastradas = new JList<String>();
+	private static ControleDados dados;
+	private String[] listaNomesLojas = new String[50];
 	
-	
-	public TelaLojas() {
+	public TelaLojas(ControleDados d) {
+		dados =d;
 		
+		listaNomesLojas = new ControleLoja(dados).getNomeLoja();
+		listaLojaCadastradas = new JList<String>(listaNomesLojas);
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(90, 10, 250, 30);
 		cadastroLoja.setBounds(70, 177, 100, 30);

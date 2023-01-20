@@ -26,8 +26,25 @@ public class ControleDados {
 		return this.d.getQtdCarros();
 	}
 	
-	public void inserirEditarCarro(String[] dadosCarros) {
+	public Loja[] getLojas() {
+		return this.d.getLojas();
+	}
+	
+	public int getQtdLojas() {
+		return this.d.getQtdLojas();
+	}
+	
+	public Anuncio[] getAnuncios() {
+		return this.d.getAnuncios();
+	}
+	
+	public int getQtdAnuncios() {
+		return this.d.getQtdAnuncios();
+	}
+	
+	public void inserirEditarCarro(String[] dadosCarros,Loja loja) {
 		Carro c = new Carro(dadosCarros[1],dadosCarros[2],dadosCarros[3],dadosCarros[4],dadosCarros[5],dadosCarros[6],Integer.parseInt(dadosCarros[7]));
+		c.cadastrarCarro(loja);
 		d.inserirEditarCarro(c, Integer.parseInt(dadosCarros[0]));
 		
 	}

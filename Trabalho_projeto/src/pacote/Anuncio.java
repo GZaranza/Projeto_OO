@@ -59,13 +59,13 @@ public class Anuncio {
 	}
 	
 	public String toString() {
-		return "----------Anuncio----------\n"+"Numero do anuncio: "+id_anuncio+"\nCarro: "+carro.getModelo()+"\nValor: R$"+valor+"\nLoja: "+loja.getNome()+"\nEndereco: "+loja.getEndereco().getLogradouro()+" "+loja.getEndereco().getComplemento()+"\nData de anuncio: "+dt_anuncio+"\n";
+		return "\nCarro: "+carro.getModelo()+"\nValor: R$"+valor+"\nLoja: "+carro.getLoja().getNome()+"\nEndereco: "+carro.getLoja().getEndereco()+" "+loja.getEndereco().getComplemento()+"\nData de anuncio: "+dt_anuncio+"\n";
 	}
 	
 	public void anunciar() {
 		int qtd;
-		Loja loja = this.getLoja();
 		Carro carro = this.getCarro();
+		Loja loja = carro.getLoja();
 		qtd = loja.getNumAnuncios();
 		this.setId_anuncio(qtd+1);
 		loja.setAnuncios(this, qtd);

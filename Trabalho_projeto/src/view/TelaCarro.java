@@ -4,11 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.*;
+import pacote.Loja;
 
 public class TelaCarro implements ActionListener{
 	
@@ -26,7 +28,8 @@ public class TelaCarro implements ActionListener{
 	private JLabel labelKm = new JLabel("Kilometragem: ");
 	private JTextField valorKm;
 	private JLabel labelLoja = new JLabel("Loja: ");
-	private JTextField valorLoja;
+	private String[] listaNomeLojas = new String[50];
+	private JComboBox<Loja> listaLojas = new JComboBox<Loja>();
 	private JLabel labelDesc = new JLabel("Descrição: ");
 	private JTextField valorDesc;
 	private JButton botExcluir = new JButton("Excluir");
@@ -35,12 +38,16 @@ public class TelaCarro implements ActionListener{
 	private static ControleDados dados;
 	private int posicao;
 	private String[] novoDado = new String [9];
+	private Loja lojaEscolhida ;
 	
 	public void inserirEditarCarro(int op, ControleDados d,TelaListaCarros p, int pos) {
 		
 		opcao = op;
 		posicao=pos;
 		dados=d;
+		
+		listaNomeLojas = new ControleLoja(dados).getNomeLoja();
+		listaLojas = new JComboBox<Loja>();
 		
 		if(op==1) {//opção da loja de cadastrar
 		valorMarca = new JTextField(200);
@@ -49,9 +56,10 @@ public class TelaCarro implements ActionListener{
 		valorCor = new JTextField(200);
 		valorPlaca = new JTextField(200);
 		valorKm = new JTextField(6);
-		valorLoja = new JTextField(200);
+		//listaLojas = new JComboBox<String>(listaNomeLojas);
 		valorDesc = new JTextField(200);
-		
+		listaLojas = new JComboBox<Loja>(dados.getLojas());
+		listaLojas.setSelectedIndex(-1);
 		
 		labelMarca.setBounds(30, 20, 150, 25);
 		valorMarca.setBounds(180,20,180,25);
@@ -68,7 +76,7 @@ public class TelaCarro implements ActionListener{
 		labelDesc.setBounds(30, 200, 150, 25);
 		valorDesc.setBounds(180,200,180,25);
 		labelLoja.setBounds(30, 230, 150, 25);
-		valorLoja.setBounds(180,230,180,25);
+		listaLojas.setBounds(180,230,180,25);
 		botSalvar.setBounds(30, 290, 150, 25);
 		botExcluir.setBounds(210,290,150,25);
 		
@@ -87,7 +95,7 @@ public class TelaCarro implements ActionListener{
 		this.janela.add(labelDesc);
 		this.janela.add(valorDesc);
 		this.janela.add(labelLoja);
-		this.janela.add(valorLoja);
+		this.janela.add(listaLojas);
 		this.janela.add(botSalvar);
 		this.janela.add(botExcluir);
 		
@@ -106,8 +114,8 @@ public class TelaCarro implements ActionListener{
 			valorPlaca = new JTextField(dados.getCarros()[pos].getPlaca(),200);
 			valorKm = new JTextField(String.valueOf(dados.getCarros()[pos].getKilometragem()),6);
 			valorDesc = new JTextField(dados.getCarros()[pos].getDescricao(),200);
-			valorLoja = new JTextField(200);
-			
+			listaLojas = new JComboBox<Loja>(dados.getLojas());
+			listaLojas.setSelectedItem(dados.getCarros()[pos].getLoja());
 			
 			labelMarca.setBounds(30, 20, 150, 25);
 			valorMarca.setBounds(180,20,180,25);
@@ -124,7 +132,7 @@ public class TelaCarro implements ActionListener{
 			labelDesc.setBounds(30, 200, 150, 25);
 			valorDesc.setBounds(180,200,180,25);
 			labelLoja.setBounds(30, 230, 150, 25);
-			valorLoja.setBounds(180,230,180,25);
+			listaLojas.setBounds(180,230,180,25);
 			botSalvar.setBounds(30, 290, 150, 25);
 			botExcluir.setBounds(210,290,150,25);
 			
@@ -143,7 +151,7 @@ public class TelaCarro implements ActionListener{
 			this.janela.add(labelDesc);
 			this.janela.add(valorDesc);
 			this.janela.add(labelLoja);
-			this.janela.add(valorLoja);
+			this.janela.add(listaLojas);
 			this.janela.add(botSalvar);
 			this.janela.add(botExcluir);
 			
@@ -178,7 +186,8 @@ public class TelaCarro implements ActionListener{
 				novoDado[5] = valorPlaca.getText();
 				novoDado[6] = valorDesc.getText();
 				novoDado[7] = valorKm.getText();
-				dados.inserirEditarCarro(novoDado);
+				lojaEscolhida = (Loja) listaLojas.getSelectedItem();
+				dados.inserirEditarCarro(novoDado,lojaEscolhida);
 				janela.dispose();
 		}	
 				

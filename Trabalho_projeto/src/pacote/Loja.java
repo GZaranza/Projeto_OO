@@ -89,7 +89,8 @@ public class Loja extends Conta {
 	}	
 	
 	public String toString() {
-		return "------Loja------\n"+"Loja: "+nome+"\nCNPJ: "+cnpj+"\nIE: "+insc_est+"\nEndereco: "+endereco.getLogradouro()+" "+endereco.getComplemento()+"\nNumero de carros na loja: "+this.getNumCarros()+"\n";
+		return nome;
+		//return "------Loja------\n"+"Loja: "+nome+"\nCNPJ: "+cnpj+"\nIE: "+insc_est+"\nEndereco: "+endereco.getLogradouro()+" "+endereco.getComplemento()+"\nNumero de carros na loja: "+this.getNumCarros()+"\n";
 	}
 	
 	public String consultarEstoque() {
