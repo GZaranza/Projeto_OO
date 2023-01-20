@@ -8,11 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import control.ControleDados;
+
 public class TelaUsuPessoa implements ActionListener{
 	private JFrame janela = new JFrame("Clientes");
 	private JLabel titulo = new JLabel("Clientes");
 	private static JButton pessoa = new JButton("Criar conta");
 	private static JButton anuncios = new JButton("Anuncios");
+	public static ControleDados dados = new ControleDados();
 	
 	public TelaUsuPessoa() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -46,7 +49,7 @@ public class TelaUsuPessoa implements ActionListener{
 		}
 		
 		if(src == anuncios) {
-			new TelaAnuncios(2);
+			new TelaListaAnuncios(dados,2);
 		}
 	}
 	

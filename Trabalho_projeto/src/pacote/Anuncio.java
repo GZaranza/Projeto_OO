@@ -10,10 +10,8 @@ public class Anuncio {
 	private Loja loja;
 	private int id_anuncio;
 	
-	public Anuncio(Carro carro,Loja loja, int valor, Endereco local_venda, String dt_anuncio) {
+	public Anuncio(int valor, String dt_anuncio) {
 		
-		this.carro = carro;
-		this.loja=loja;
 		this.valor = valor;
 		this.dt_anuncio = dt_anuncio;
 	}
@@ -59,14 +57,14 @@ public class Anuncio {
 	}
 	
 	public String toString() {
-		return "\nCarro: "+carro.getModelo()+"\nValor: R$"+valor+"\nLoja: "+carro.getLoja().getNome()+"\nEndereco: "+carro.getLoja().getEndereco()+" "+loja.getEndereco().getComplemento()+"\nData de anuncio: "+dt_anuncio+"\n";
+		return "\nCarro: "+carro.getModelo()+'\n'+"\nValor: R$"+valor+"\nLoja: "+carro.getLoja().getNome()+"\nEndereco: "+carro.getLoja().getEndereco()+" "+loja.getEndereco().getComplemento()+"\nData de anuncio: "+dt_anuncio+"\n";
 	}
 	
-	public void anunciar() {
+	public void anunciar(Carro carro) {
 		int qtd;
-		Carro carro = this.getCarro();
-		Loja loja = carro.getLoja();
-		qtd = loja.getNumAnuncios();
+		this.setCarro(carro);
+		this.setLoja(carro.getLoja());
+		qtd = carro.getLoja().getNumAnuncios();
 		this.setId_anuncio(qtd+1);
 		loja.setAnuncios(this, qtd);
 		loja.setNumAnuncios(qtd+1);

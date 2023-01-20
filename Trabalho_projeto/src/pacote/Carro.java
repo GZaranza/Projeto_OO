@@ -99,7 +99,7 @@ public class Carro {
 	}
 	
 	public String toString() {
-		return "-----------Carro------------\nModelo: "+ modelo+ "\nMarca: "+ marca+ "\nAno: "+ano+ "\nCor: "+cor+ "\nPlaca: "+placa+ "\nDescricao: "+descricao+"\n";
+		return marca+ " "+ modelo+ " "+ano+" "+placa;
 	}
 	
 	public void cadastrarCarro(Loja loj) {

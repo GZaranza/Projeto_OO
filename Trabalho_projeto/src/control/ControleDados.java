@@ -70,4 +70,33 @@ public class ControleDados {
 			return true;
 		}
 	}
+	
+	public void inserirEditarAnuncio(String[] dadosAnuncio,Carro carro) {
+		Anuncio a = new Anuncio(Integer.parseInt(dadosAnuncio[2]),dadosAnuncio[1]);
+		a.anunciar(carro);
+		d.inserirEditarAnuncio(a, Integer.parseInt(dadosAnuncio[0]));
+		
+	}
+	
+	public boolean apagarAnuncio(int i) {
+		String anuncioExcluido = d.getAnuncios()[i].getCarro().toString();
+		if(i == (d.getQtdAnuncios()-1)) {
+			d.setQtdAnuncios((d.getQtdAnuncios()-1));
+			d.getAnuncios()[d.getQtdAnuncios()] = null;
+			return true;
+		}
+		else {
+			int aux =0;
+			while(d.getAnuncios()[aux].toString().compareTo(anuncioExcluido)!=0) {
+				aux++;
+			}
+			for(int b = aux;b<d.getQtdAnuncios()-1;b++) {
+				d.getAnuncios()[b]=null;
+				d.getAnuncios()[b]= d.getAnuncios()[b+1];
+			}
+			d.getAnuncios()[d.getQtdAnuncios()]=null;
+			d.setQtdAnuncios(d.getQtdAnuncios()-1);
+			return true;
+		}
+	}
 }
