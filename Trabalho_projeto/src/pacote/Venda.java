@@ -79,15 +79,14 @@ public class Venda {
 	}
 	
 	public String toString(){
-		return "------------VENDA-----------\n"+" Carro: "+anuncio_venda.getCarro().getModelo()+"\n Loja: "+anuncio_venda.getLoja().getNome()+"\n Comprador: "+comprador.getNome()+"\n Data da venda: "+this.getDt_venda()+"\n Valor pago: "+this.getValor_pago()+"\n Forma de pagamento: "+this.getForma_pagamento()+"\n";
+		return anuncio_venda.getCarro().toString()+" R$"+anuncio_venda.getValor();
 	}
 	
-	public void vender() {
+	public void vender(Anuncio anuncio) {
 		int qtd;
-		Loja loja_vend = anuncio_venda.getLoja();
-		Anuncio anuncio_venda = this.getAnuncio_venda();
-		Usuario comprador = this.getComprador();
-		qtd = loja_vend.getNumVenda();
+		this.setAnuncio_venda(anuncio);
+		this.setLoja_vend(anuncio.getCarro().getLoja());
+		qtd = anuncio.getCarro().getLoja().getNumVenda();
 		this.setId_venda(qtd+1);
 		loja_vend.setVendas(this, qtd);
 		loja_vend.setNumVenda(qtd+1);

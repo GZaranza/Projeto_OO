@@ -77,7 +77,7 @@ public class TelaUsuLoja implements ActionListener{
 				}
 				
 				if(src == vendas) {
-					// TelaListaLojas();
+					new TelaListaVendas(dados);
 				}
 	}
 

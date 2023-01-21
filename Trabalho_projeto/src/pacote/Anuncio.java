@@ -57,7 +57,7 @@ public class Anuncio {
 	}
 	
 	public String toString() {
-		return "\nCarro: "+carro.getModelo()+'\n'+"\nValor: R$"+valor+"\nLoja: "+carro.getLoja().getNome()+"\nEndereco: "+carro.getLoja().getEndereco()+" "+loja.getEndereco().getComplemento()+"\nData de anuncio: "+dt_anuncio+"\n";
+		return carro.getModelo()+' '+"R$"+valor+" "+carro.getLoja().getNome()+"\nEndereco: "+carro.getLoja().getEndereco()+" "+loja.getEndereco().getComplemento()+"\nData de anuncio: "+dt_anuncio+"\n";
 	}
 	
 	public void anunciar(Carro carro) {

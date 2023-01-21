@@ -42,6 +42,24 @@ public class ControleDados {
 		return this.d.getQtdAnuncios();
 	}
 	
+	public Venda[] getVendas() {
+		return this.d.getVendas();
+	}
+	
+	public int getQtdVendas() {
+		return this.d.getQtdVendas();
+	}
+	
+	public Usuario[] getUsuarios() {
+		return this.d.getUsuarios();
+	}
+	
+	public int getQtdUsuarios() {
+		return this.d.getQtdUsuarios();
+	}
+	
+	
+	
 	public void inserirEditarCarro(String[] dadosCarros,Loja loja) {
 		Carro c = new Carro(dadosCarros[1],dadosCarros[2],dadosCarros[3],dadosCarros[4],dadosCarros[5],dadosCarros[6],Integer.parseInt(dadosCarros[7]));
 		c.cadastrarCarro(loja);
@@ -99,4 +117,34 @@ public class ControleDados {
 			return true;
 		}
 	}
+	
+	public void inserirEditarVenda(String[] dadosVendas,Anuncio anuncio,Usuario comprador) {
+		Venda v = new Venda(anuncio,comprador,Integer.parseInt(dadosVendas[1]),dadosVendas[2],dadosVendas[3]);
+		v.vender(anuncio);
+		d.inserirEditarVenda(v, Integer.parseInt(dadosVendas[0]));
+		
+	}
+	
+	public boolean apagarVenda(int i) {
+		String vendaExcluida = d.getVendas()[i].toString();
+		if(i == (d.getQtdVendas()-1)) {
+			d.setQtdVendas((d.getQtdVendas()-1));
+			d.getVendas()[d.getQtdVendas()] = null;
+			return true;
+		}
+		else {
+			int aux =0;
+			while(d.getVendas()[aux].toString().compareTo(vendaExcluida)!=0) {
+				aux++;
+			}
+			for(int b = aux;b<d.getQtdVendas()-1;b++) {
+				d.getVendas()[b]=null;
+				d.getVendas()[b]= d.getVendas()[b+1];
+			}
+			d.getVendas()[d.getQtdVendas()]=null;
+			d.setQtdVendas(d.getQtdVendas()-1);
+			return true;
+		}
+	}
+	
 }

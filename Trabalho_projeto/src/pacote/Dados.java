@@ -10,7 +10,10 @@ public class Dados {
 	private int qtdEnderecos = 0;
 	private Anuncio[] anuncios = new Anuncio[50];
 	private int qtdAnuncios = 0;
-	
+	private Venda[] vendas = new Venda[50];
+	private int qtdVendas = 0;
+	private Usuario[] usuarios = new Usuario[50];
+	private int qtdUsuarios = 0;
 	
 	public void dadosPreCadastrados() {
 		enderecos[0] = new Endereco("Rua", "20 sul loja 7", "Aguas Claras", "Brasilia","DF", 71924365);
@@ -26,11 +29,14 @@ public class Dados {
 		qtdLojas++;
 		carros[0].cadastrarCarro(lojas[1]);
 		carros[1].cadastrarCarro(lojas[1]);
-		
+		usuarios[0] = new Usuario("Gabriel Zaranza", "gabriel@hotmail.com", "05295796183", "02/01/2001", "84596321", enderecos[0]);
+		qtdUsuarios++;
 		anuncios[0] = new Anuncio( 25000, "08/12/2022");
 		qtdAnuncios++;
 		anuncios[0].anunciar(carros[0]);
-		
+		vendas[0]= new Venda(anuncios[0],usuarios[0], 20000,"financiamento","09/12/2022");
+		qtdVendas++;
+		vendas[0].vender(anuncios[0]);
 	}
 	
 	public Carro[] getCarros() {
@@ -91,6 +97,38 @@ public class Dados {
 		this.qtdAnuncios = qtdAnuncios;
 	}
 	
+	public Venda[] getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(Venda[] vendas) {
+		this.vendas = vendas;
+	}
+
+	public int getQtdVendas() {
+		return qtdVendas;
+	}
+
+	public void setQtdVendas(int qtdVendas) {
+		this.qtdVendas = qtdVendas;
+	}
+
+	public Usuario[] getUsuarios() {
+		return usuarios;
+	}
+	
+	public void setAUsuarios(Usuario[] usuarios) {
+		this.usuarios = usuarios;
+	}
+	
+	public int getQtdUsuarios() {
+		return qtdUsuarios;
+	}
+	public void setQtdUsuarios(int qtdUsuarios) {
+		this.qtdUsuarios = qtdUsuarios;
+	}
+	
+	
 	public void inserirEditarCarro(Carro x, int pos) {
 		this.carros[pos] = x;
 		if(pos==qtdCarros) qtdCarros++;
@@ -99,5 +137,10 @@ public class Dados {
 	public void inserirEditarAnuncio(Anuncio x, int pos) {
 		this.anuncios[pos] = x;
 		if(pos==qtdAnuncios) qtdAnuncios++;
+	}
+	
+	public void inserirEditarVenda(Venda x, int pos) {
+		this.vendas[pos]=x;
+		if(pos==qtdVendas) qtdVendas++;
 	}
 }
