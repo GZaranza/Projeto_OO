@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 
 import control.ControleDados;
 import control.ControleLoja;
+import control.ControleUsuario;
+import pacote.Anuncio;
 import pacote.Loja;
 import pacote.Usuario;
 
@@ -19,9 +21,8 @@ public class TelaVenda implements ActionListener{
 
 	private JFrame janela = new JFrame("Venda");
 	private JLabel labelAnuncio = new JLabel("Anuncio: ");
-	private JTextField tituloAnuncio;
-	private JLabel labelValorAnuncio = new JLabel("Valor anunciado: ");
-	private JTextField valorValorAnuncio;
+	private JComboBox<Anuncio> listaAnuncio = new JComboBox<Anuncio>();
+	private String[] listaTitloAnuncio = new String[50];
 	private JLabel labelValorVenda = new JLabel("Valor Venda: ");
 	private JTextField valorValorVenda ;
 	private JLabel labelComprador = new JLabel("Comprador: ");
@@ -38,7 +39,9 @@ public class TelaVenda implements ActionListener{
 	private static ControleDados dados;
 	private int posicao;
 	private String[] novoDado = new String [9];
-	private Loja lojaEscolhida ;
+	private Anuncio anuncioEscolhido ;
+	private Usuario compradorEscolhido;
+	
 	
 	public void inserirEditarVenda(int op, ControleDados d,TelaListaVendas p, int pos) {
 		
@@ -51,39 +54,33 @@ public class TelaVenda implements ActionListener{
 		posicao=pos;
 		dados=d;
 		
-		//listaNomeCliente = new ControleDados(dados).getUsuarios();
-		//listaLojas = new JComboBox<Loja>();
+		listaNomeCliente = new ControleUsuario(dados).getNomeUsuario();
+		listaCliente = new JComboBox<Usuario>();
 		
-		if(op==1) {//opção da loja de cadastrar
-		tituloAnuncio = new JTextField(200);
-		valorValorAnuncio = new JTextField(200);
+		if(op==1) {//fazer uma nova venda
+		listaAnuncio = new JComboBox<Anuncio>(dados.getAnuncios());
 		valorValorVenda = new JTextField(4);
 		valorComprador = new JTextField(200);
 		valorFormaPag = new JTextField(200);
 		valorDataVenda = new JTextField(6);
-		//listaLojas = new JComboBox<String>(listaNomeLojas);
-		//listaLojas = new JComboBox<Loja>(dados.getLojas());
-		//listaLojas.setSelectedIndex(-1);
+		listaCliente = new JComboBox<Usuario>(dados.getUsuarios());
+		listaCliente.setSelectedIndex(-1);
 		
 		labelAnuncio.setBounds(30, 20, 150, 25);
-		tituloAnuncio.setBounds(180,20,180,25);
-		labelValorAnuncio.setBounds(30, 50, 150, 25);
-		valorValorAnuncio.setBounds(180,50,180,25);
-		labelValorVenda.setBounds(30, 80, 150, 25);
-		valorValorVenda.setBounds(180,80,180,25);
-		labelComprador.setBounds(30, 110, 150, 25);
-		valorComprador.setBounds(180,110,180,25);
-		labelFormaPag.setBounds(30, 140, 150, 25);
-		valorFormaPag.setBounds(180,140,180,25);
-		labelDataVenda.setBounds(30, 170, 150, 25);
-		valorDataVenda.setBounds(180,170,180,25);
-		botSalvar.setBounds(30, 290, 150, 25);
-		botExcluir.setBounds(210,290,150,25);
+		listaAnuncio.setBounds(180,20,180,25);
+		labelValorVenda.setBounds(30, 50, 150, 25);
+		valorValorVenda.setBounds(180,50,180,25);
+		labelComprador.setBounds(30, 80, 150, 25);
+		listaCliente.setBounds(180,80,180,25);
+		labelFormaPag.setBounds(30, 110, 150, 25);
+		valorFormaPag.setBounds(180,110,180,25);
+		labelDataVenda.setBounds(30, 140, 150, 25);
+		valorDataVenda.setBounds(180,140,180,25);
+		botSalvar.setBounds(30, 290, 170, 25);
+		botExcluir.setBounds(210,290,170,25);
 		
 		this.janela.add(labelAnuncio);
-		this.janela.add(tituloAnuncio);
-		this.janela.add(labelValorAnuncio);
-		this.janela.add(valorValorAnuncio);
+		this.janela.add(listaAnuncio);
 		this.janela.add(labelValorVenda);
 		this.janela.add(valorValorVenda);
 		this.janela.add(labelComprador);
@@ -92,6 +89,7 @@ public class TelaVenda implements ActionListener{
 		this.janela.add(valorFormaPag);
 		this.janela.add(labelDataVenda);
 		this.janela.add(valorDataVenda);
+		this.janela.add(listaCliente);
 		this.janela.add(botSalvar);
 		this.janela.add(botExcluir);
 		
@@ -103,20 +101,16 @@ public class TelaVenda implements ActionListener{
 		
 		}
 		else if(op==2) {
-			tituloAnuncio = new JTextField(dados.getVendas()[pos].toString(),200);
-			valorValorAnuncio = new JTextField(String.valueOf(dados.getVendas()[pos].getAnuncio_venda().getValor()),200);
+			listaAnuncio = new JComboBox<Anuncio>(dados.getAnuncios());
+			listaAnuncio.setSelectedItem(dados.getAnuncios()[pos].getCarro());
 			valorValorVenda = new JTextField(String.valueOf(dados.getVendas()[pos].getValor_pago()),15);
 			valorComprador = new JTextField(dados.getVendas()[pos].getComprador().getNome(),200);
 			valorFormaPag = new JTextField(dados.getVendas()[pos].getForma_pagamento(),200);
 			valorDataVenda = new JTextField(dados.getVendas()[pos].getDt_venda(),6);
 			
-			//listaLojas = new JComboBox<Loja>(dados.getLojas());
-			//listaLojas.setSelectedItem(dados.getCarros()[pos].getLoja());
 			
 			labelAnuncio.setBounds(30, 20, 150, 25);
-			tituloAnuncio.setBounds(180,20,300,25);
-			labelValorAnuncio.setBounds(30, 50, 150, 25);
-			valorValorAnuncio.setBounds(180,50,300,25);
+			listaAnuncio.setBounds(180,20,300,25);
 			labelValorVenda.setBounds(30, 80, 150, 25);
 			valorValorVenda.setBounds(180,80,300,25);
 			labelComprador.setBounds(30, 110, 150, 25);
@@ -128,15 +122,11 @@ public class TelaVenda implements ActionListener{
 			botSalvar.setBounds(30, 290, 150, 25);
 			botExcluir.setBounds(210,290,150,25);
 
-			tituloAnuncio.setEditable(false);
-			tituloAnuncio.setBackground(Color.white);
-			valorValorAnuncio.setEditable(false);
-			valorValorAnuncio.setBackground(Color.white);
+			listaAnuncio.setEditable(false);
+			listaAnuncio.setBackground(Color.white);
 			
 			this.janela.add(labelAnuncio);
-			this.janela.add(tituloAnuncio);
-			this.janela.add(labelValorAnuncio);
-			this.janela.add(valorValorAnuncio);
+			this.janela.add(listaAnuncio);
 			this.janela.add(labelValorVenda);
 			this.janela.add(valorValorVenda);
 			this.janela.add(labelComprador);
@@ -172,20 +162,17 @@ public class TelaVenda implements ActionListener{
 				else {
 					novoDado[0]=Integer.toString(posicao);
 				}
-				novoDado[1] = valorMarca.getText();
-				novoDado[2] = valorModelo.getText();
-				novoDado[3] = valorAno.getText();
-				novoDado[4] = valorCor.getText();
-				novoDado[5] = valorPlaca.getText();
-				novoDado[6] = valorDesc.getText();
-				novoDado[7] = valorKm.getText();
-				lojaEscolhida = (Loja) listaLojas.getSelectedItem();
-				dados.inserirEditarVenda(novoDado,lojaEscolhida);
+				novoDado[1] = valorValorVenda.getText();
+				novoDado[2] = valorFormaPag.getText();
+				novoDado[3] = valorDataVenda.getText();
+				anuncioEscolhido = (Anuncio) listaAnuncio.getSelectedItem();
+				compradorEscolhido = (Usuario) listaCliente.getSelectedItem();
+				dados.inserirEditarVenda(novoDado,anuncioEscolhido,compradorEscolhido);
 				janela.dispose();
 		}	
 				
 		if(src== botExcluir) {
-			dados.apagarCarro(posicao);
+			dados.apagarVenda(posicao);
 			janela.dispose();
 		}
 	}

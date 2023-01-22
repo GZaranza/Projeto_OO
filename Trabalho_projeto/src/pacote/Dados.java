@@ -19,21 +19,33 @@ public class Dados {
 		enderecos[0] = new Endereco("Rua", "20 sul loja 7", "Aguas Claras", "Brasilia","DF", 71924365);
 		carros[0] = new Carro("Chevrolet", "Celta", "2015/2016", "Branco", "PAE7474", "4 PORTAS",
 				74569);
+		
 		qtdCarros++;
 		carros[1] = new Carro("Volkswagen", "Gol", "2017/2018", "Preto", "PGB4598", "2 portas ",
 				35684);
 		qtdCarros++;
+		
 		lojas[0] = new Loja("Julia CAR", "julia@hotmail.com","61983802356", enderecos[0],"123456789","987654321");
 		qtdLojas++;
+		
 		lojas[1] = new Loja("Bsb carros", "bsbcarros@hotmail.com","6134756982",  enderecos[0],"38154000158","25265874");
 		qtdLojas++;
+		
 		carros[0].cadastrarCarro(lojas[1]);
 		carros[1].cadastrarCarro(lojas[1]);
+		
 		usuarios[0] = new Usuario("Gabriel Zaranza", "gabriel@hotmail.com", "05295796183", "02/01/2001", "84596321", enderecos[0]);
 		qtdUsuarios++;
+		
 		anuncios[0] = new Anuncio( 25000, "08/12/2022");
 		qtdAnuncios++;
+		
+		anuncios[1] = new Anuncio( 30000, "08/12/2022");
+		qtdAnuncios++;
+		
 		anuncios[0].anunciar(carros[0]);
+		anuncios[1].anunciar(carros[1]);
+		
 		vendas[0]= new Venda(anuncios[0],usuarios[0], 20000,"financiamento","09/12/2022");
 		qtdVendas++;
 		vendas[0].vender(anuncios[0]);

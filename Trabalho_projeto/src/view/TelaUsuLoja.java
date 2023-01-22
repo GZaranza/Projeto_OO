@@ -50,14 +50,6 @@ public class TelaUsuLoja implements ActionListener{
 		
 	}
 	
-	/*public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		TelaUsuLoja menu = new TelaUsuLoja();
-		carros.addActionListener(menu);
-		anuncios.addActionListener(menu);
-		vendas.addActionListener(menu);
-		lojas.addActionListener(menu);
-	}*/
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

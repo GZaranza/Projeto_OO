@@ -20,6 +20,7 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 	private JLabel titulo;
 	private JList<String> listaAnunciosFeitos = new JList<String>();
 	private JButton anunciaCarro= new JButton("Anunciar");
+	private JButton aplicarFiltro = new JButton ("Filtrar");
 	private JButton refresh = new JButton("Atualizar");
 	private JLabel labelMin = new JLabel("Valor mínimo: ");
 	private JTextField valorMin = new JTextField();
@@ -30,6 +31,7 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 	private static ControleDados dados;
 	private String[] listaStringAnuncios = new String[50];
 	private int opcao;
+	private String marcaFiltro = new String();
 	
 	
 	public TelaListaAnuncios(ControleDados d,int op) {
@@ -66,15 +68,13 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			break;
 			
 		case 2://mostrar a lista de anuncios para o usuario Pessoa	
-			listaAnunciosFeitos.setListData(new ControleAnuncio(dados).getAnuncioString());
-			listaAnunciosFeitos.updateUI();
 			listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
 			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
 			
 			janela = new JFrame("Anúncios de Carros");
 			titulo = new JLabel("Anúncios");
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(90, 10, 250, 30);
+			titulo.setBounds(200, 10, 250, 30);
 			listaAnunciosFeitos.setBounds(20, 70, 450, 250);
 			labelMin.setBounds(140,50,90,10);
 			valorMin.setBounds(220,50,70,15);
@@ -83,13 +83,12 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			labelMarca.setBounds(20, 50, 50, 10);
 			procuraMarca.setBounds(60,50,70,15);
 			refresh.setBounds(20, 330, 100, 30);
-			
+			aplicarFiltro.setBounds(20, 10, 100, 20);
 			
 			
 			janela.setLayout(null);
 			janela.add(titulo);
 			janela.add(listaAnunciosFeitos);
-			//janela.add(anunciaCarro);
 			janela.add(refresh);
 			janela.add(labelMarca);
 			janela.add(procuraMarca);
@@ -97,17 +96,14 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			janela.add(valorMin);
 			janela.add(labelMax);
 			janela.add(valorMax);
-			
-			
-			
-			
-			
+			janela.add(aplicarFiltro);
 			
 			janela.setSize(600, 400);
 			janela.setVisible(true);
 			listaAnunciosFeitos.addListSelectionListener(this);
 			//anunciaCarro.addActionListener(this);
 			refresh.addActionListener(this);
+			aplicarFiltro.addActionListener(this);
 			break;
 			
 		}	
@@ -142,9 +138,24 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 				new TelaAnuncio().inserirEditarAnuncio(1, dados, this, 0);
 			}
 			
+		
+			if(src== refresh) {
+				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).getAnuncioString());
+				listaAnunciosFeitos.updateUI();
+			}
 		}
-		listaAnunciosFeitos.setListData(new ControleAnuncio(dados).getAnuncioString());
-		listaAnunciosFeitos.updateUI();
+		if(opcao==2) {
+			if(src== refresh) {
+				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).getAnuncioString());
+				listaAnunciosFeitos.updateUI();
+			}
+			
+			if(src == aplicarFiltro) {
+				marcaFiltro = procuraMarca.getText();
+				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).filtroMarca(marcaFiltro));
+				listaAnunciosFeitos.updateUI();
+			}
+		}
 	}
 
 }

@@ -79,7 +79,7 @@ public class Venda {
 	}
 	
 	public String toString(){
-		return anuncio_venda.getCarro().toString()+" R$"+anuncio_venda.getValor();
+		return anuncio_venda.getLoja().getNome()+": "+ anuncio_venda.getCarro().toString()+" R$"+anuncio_venda.getValor();
 	}
 	
 	public void vender(Anuncio anuncio) {

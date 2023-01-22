@@ -26,4 +26,18 @@ public class ControleAnuncio {
 	public void setQtdAnuncios(int qtdAnuncios) {
 		this.qtdAnuncios = qtdAnuncios;
 	}
+	
+	public String[] filtroMarca(String marca) {
+		String[] anunciosFiltrados = new String[qtdAnuncios];
+		for(int i =0; i<qtdAnuncios;i++) {
+			if(a[i].getCarro().getMarca() == marca){
+				anunciosFiltrados[i] = a[i].toString();
+			}
+			else {
+				anunciosFiltrados[i] = "ERRO";
+			}
+		}
+		return anunciosFiltrados;
+	}
+	
 }

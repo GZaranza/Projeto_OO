@@ -64,7 +64,7 @@ public class Usuario extends Conta{
 	
 	
 	public String toString() {
-		return "----------Usuario---------\n"+"Nome: "+this.getNome()+"\nData de nascimento: "+this.getDt_nasc()+"\nCPF: "+this.getCPF()+"\nEndereco: "+this.getEndereco().getLogradouro()+" "+this.getEndereco().getComplemento()+"\n";
+		return this.getNome();
 	}
 
 }
