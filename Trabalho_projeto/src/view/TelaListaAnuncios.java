@@ -32,6 +32,8 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 	private String[] listaStringAnuncios = new String[50];
 	private int opcao;
 	private String marcaFiltro = new String();
+	private int minFiltro;
+	private int maxFiltro;
 	
 	
 	public TelaListaAnuncios(ControleDados d,int op) {
@@ -152,7 +154,22 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			
 			if(src == aplicarFiltro) {
 				marcaFiltro = procuraMarca.getText();
-				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).filtroMarca(marcaFiltro));
+				
+				if(valorMin.getText().equals("")) {
+					minFiltro = 0;
+				}
+				else {
+					minFiltro = Integer.parseInt(valorMin.getText());
+				}
+				
+				if(valorMax.getText().equals("")) {
+					maxFiltro = 100000000;
+				}
+				else {
+					maxFiltro = Integer.parseInt(valorMax.getText());
+				}
+				
+				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).filtrarLista(marcaFiltro,minFiltro,maxFiltro));
 				listaAnunciosFeitos.updateUI();
 			}
 		}

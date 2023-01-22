@@ -25,6 +25,16 @@ public class Dados {
 				35684);
 		qtdCarros++;
 		
+		carros[2] = new Carro("Volkswagen", "Amarok", "2019/2020", "Prata", "ABC9876", "4 PORTAS ",
+				62679);
+		qtdCarros++;
+		
+		carros[3] = new Carro("Chevrolet", "Onix", "2010/2011", "Branco", "QWE1234", "4 PORTAS",
+				15564);
+		
+		qtdCarros++;
+		
+
 		lojas[0] = new Loja("Julia CAR", "julia@hotmail.com","61983802356", enderecos[0],"123456789","987654321");
 		qtdLojas++;
 		
@@ -33,8 +43,13 @@ public class Dados {
 		
 		carros[0].cadastrarCarro(lojas[1]);
 		carros[1].cadastrarCarro(lojas[1]);
+		carros[2].cadastrarCarro(lojas[0]);
+		carros[3].cadastrarCarro(lojas[0]);
 		
-		usuarios[0] = new Usuario("Gabriel Zaranza", "gabriel@hotmail.com", "05295796183", "02/01/2001", "84596321", enderecos[0]);
+		usuarios[0] = new Usuario("Gabriel Zaranza", "gabriel@hotmail.com", "05295796183", "02/01/2001", "984596321", enderecos[0]);
+		qtdUsuarios++;
+		
+		usuarios[1] = new Usuario("Victor Brito", "victor@gmail.com", "0123456789", "20/10/2001", "983235689", enderecos[0]);
 		qtdUsuarios++;
 		
 		anuncios[0] = new Anuncio( 25000, "08/12/2022");
@@ -43,8 +58,17 @@ public class Dados {
 		anuncios[1] = new Anuncio( 30000, "08/12/2022");
 		qtdAnuncios++;
 		
+		anuncios[2] = new Anuncio( 60000, "08/12/2022");
+		qtdAnuncios++;
+		
+		anuncios[3] = new Anuncio( 15000, "08/12/2022");
+		qtdAnuncios++;
+		
+		
 		anuncios[0].anunciar(carros[0]);
 		anuncios[1].anunciar(carros[1]);
+		anuncios[2].anunciar(carros[2]);
+		anuncios[3].anunciar(carros[3]);
 		
 		vendas[0]= new Venda(anuncios[0],usuarios[0], 20000,"financiamento","09/12/2022");
 		qtdVendas++;
