@@ -73,6 +73,7 @@ public class Dados {
 		vendas[0]= new Venda(anuncios[0],usuarios[0], 20000,"financiamento","09/12/2022");
 		qtdVendas++;
 		vendas[0].vender(anuncios[0]);
+		vendas[0].getAnuncio_venda().getCarro().setFoivendido(true);
 	}
 	
 	public Carro[] getCarros() {

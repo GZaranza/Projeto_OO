@@ -41,8 +41,7 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 		dados = d;
 		opcao=op;
 		
-		switch(op) {
-		case 1: //mostrar a lista de anuncios para o Usuario Loja
+		if(op==1) {//mostrar a lista de anuncios para o Usuario Loja
 			
 			listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
 			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
@@ -67,9 +66,9 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			anunciaCarro.addActionListener(this);
 			refresh.addActionListener(this);
 			listaAnunciosFeitos.addListSelectionListener(this);
-			break;
+		}
 			
-		case 2://mostrar a lista de anuncios para o usuario Pessoa	
+		else {//mostrar a lista de anuncios para o usuario Pessoa	
 			listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
 			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
 			
@@ -103,10 +102,9 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			janela.setSize(600, 400);
 			janela.setVisible(true);
 			listaAnunciosFeitos.addListSelectionListener(this);
-			//anunciaCarro.addActionListener(this);
 			refresh.addActionListener(this);
 			aplicarFiltro.addActionListener(this);
-			break;
+			
 			
 		}	
 	}

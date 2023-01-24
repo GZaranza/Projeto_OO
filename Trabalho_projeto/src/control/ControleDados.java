@@ -68,7 +68,7 @@ public class ControleDados {
 	}
 	
 	public boolean apagarCarro(int i) {
-		String carroExcluido = d.getCarros()[i].getModelo();
+		String carroExcluido = d.getCarros()[i].toString();
 		if(i == (d.getQtdCarros()-1)) {
 			d.setQtdCarros((d.getQtdCarros()-1));
 			d.getCarros()[d.getQtdCarros()] = null;
@@ -76,7 +76,7 @@ public class ControleDados {
 		}
 		else {
 			int aux =0;
-			while(d.getCarros()[aux].getModelo().compareTo(carroExcluido)!=0) {
+			while(d.getCarros()[aux].toString().compareTo(carroExcluido)!=0) {
 				aux++;
 			}
 			for(int b = aux;b<d.getQtdCarros()-1;b++) {

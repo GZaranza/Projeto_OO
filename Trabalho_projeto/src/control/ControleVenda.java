@@ -20,6 +20,7 @@ public class ControleVenda {
 		return s;
 	}
 	
+	
 	public Anuncio getAnuncio(int i){
 		return v[i].getAnuncio_venda();
 	}

@@ -61,7 +61,7 @@ public void inserirEditarAnuncio(int op, ControleDados d,TelaListaAnuncios p, in
 		if(op==1) {//opção da loja de anunciar
 		valorValor = new JTextField(200);
 		valorData = new JTextField(10);
-		listaCarros = new JComboBox<Carro>(dados.getCarros());
+		listaCarros = new JComboBox<Carro>(new ControleCarro(dados).listaNaoVendidos());
 		listaCarros.setSelectedIndex(-1);
 		
 		labelCarro.setBounds(30, 20, 150, 25);

@@ -86,6 +86,7 @@ public class Venda {
 		int qtd;
 		this.setAnuncio_venda(anuncio);
 		this.setLoja_vend(anuncio.getCarro().getLoja());
+		this.getAnuncio_venda().getCarro().setFoivendido(true);
 		qtd = anuncio.getCarro().getLoja().getNumVenda();
 		this.setId_venda(qtd+1);
 		loja_vend.setVendas(this, qtd);

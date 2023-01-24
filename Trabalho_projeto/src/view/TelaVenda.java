@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import control.ControleAnuncio;
 import control.ControleDados;
 import control.ControleLoja;
 import control.ControleUsuario;
@@ -46,7 +47,7 @@ public class TelaVenda implements ActionListener{
 	public void inserirEditarVenda(int op, ControleDados d,TelaListaVendas p, int pos) {
 		
 		
-		/*********Mexer com a jcombobox dos usuarios *************/
+		
 		
 		
 		
@@ -58,13 +59,15 @@ public class TelaVenda implements ActionListener{
 		listaCliente = new JComboBox<Usuario>();
 		
 		if(op==1) {//fazer uma nova venda
-		listaAnuncio = new JComboBox<Anuncio>(dados.getAnuncios());
+		listaAnuncio = new JComboBox<Anuncio>(new ControleAnuncio(dados).listaNaoVendidos());
 		valorValorVenda = new JTextField(4);
 		valorComprador = new JTextField(200);
 		valorFormaPag = new JTextField(200);
 		valorDataVenda = new JTextField(6);
 		listaCliente = new JComboBox<Usuario>(dados.getUsuarios());
 		listaCliente.setSelectedIndex(-1);
+		//listaAnuncio.setSelectedIndex();
+		
 		
 		labelAnuncio.setBounds(30, 20, 150, 25);
 		listaAnuncio.setBounds(180,20,180,25);
@@ -107,7 +110,7 @@ public class TelaVenda implements ActionListener{
 			valorComprador = new JTextField(dados.getVendas()[pos].getComprador().getNome(),200);
 			valorFormaPag = new JTextField(dados.getVendas()[pos].getForma_pagamento(),200);
 			valorDataVenda = new JTextField(dados.getVendas()[pos].getDt_venda(),6);
-			
+			listaAnuncio.setEnabled(false);
 			
 			labelAnuncio.setBounds(30, 20, 150, 25);
 			listaAnuncio.setBounds(180,20,300,25);

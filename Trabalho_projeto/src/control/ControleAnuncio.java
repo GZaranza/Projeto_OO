@@ -13,11 +13,27 @@ public class ControleAnuncio {
 	
 	public String[] getAnuncioString() {
 		String[] s = new String[qtdAnuncios];
+		
 		for(int i=0; i<qtdAnuncios;i++) {
-			s[i] = a[i].toString();
+			if(a[i].getCarro().getFoiVendido()==false) {	
+				s[i] = a[i].toString();
+			}
 		}
+		
 		return s;
 	}
+	
+	public Anuncio[] listaNaoVendidos() {
+		Anuncio[] list = new Anuncio[qtdAnuncios];
+		for(int i = 0; i< qtdAnuncios;i++) {
+			if(a[i].getCarro().getFoiVendido()==false) {
+				list[i]= a[i];
+			}
+		}
+		
+		return list;
+	}
+	
 	
 	public int getQtdAnuncios() {
 		return qtdAnuncios;

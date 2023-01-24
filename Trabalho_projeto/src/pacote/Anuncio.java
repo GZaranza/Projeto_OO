@@ -9,6 +9,7 @@ public class Anuncio {
 	private String dt_anuncio; //"dd/MM/yyyy"
 	private Loja loja;
 	private int id_anuncio;
+	private boolean foiVendido = false;
 	
 	public Anuncio(int valor, String dt_anuncio) {
 		
@@ -56,6 +57,14 @@ public class Anuncio {
 		this.id_anuncio = id_anuncio;
 	}
 	
+	public boolean getFoiVendido() {
+		return foiVendido;
+	}
+	
+	public void setFoivendido(boolean foiVendido) {
+		this.foiVendido = foiVendido;
+	}
+		
 	public String toString() {
 		return carro.getLoja().getNome()+": "+carro.toString()+' '+"R$"+valor;
 	}

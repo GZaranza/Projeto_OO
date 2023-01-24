@@ -13,6 +13,8 @@ public class Carro {
 	private int kilometragem;
 	private int id_carro;
 	private Loja loja;
+	private boolean foiVendido = false;
+	
 	
 	public Carro(String marca, String modelo, String ano, String cor, String placa, String descricao,
 			int kilometragem) {
@@ -96,6 +98,14 @@ public class Carro {
 
 	public void setLoja(Loja loja) {
 		this.loja = loja;
+	}
+	
+	public boolean getFoiVendido() {
+		return foiVendido;
+	}
+	
+	public void setFoivendido(boolean foiVendido) {
+		this.foiVendido = foiVendido;
 	}
 	
 	public String toString() {

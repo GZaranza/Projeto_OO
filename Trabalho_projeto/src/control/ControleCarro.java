@@ -13,10 +13,25 @@ public class ControleCarro {
 	
 	public String[] getModeloCarro() {
 		String[] s = new String[qtdCarros];
+		
 		for(int i = 0; i< qtdCarros;i++) {
-			s[i]= c[i].getModelo() +' '+ c[i].getAno();
+			if(c[i].getFoiVendido()==false) {
+				s[i]= c[i].getModelo() +' '+ c[i].getAno();
+			}
 		}
+		
 		return s;
+	}
+	
+	public Carro[] listaNaoVendidos() {
+		Carro[] list = new Carro[qtdCarros];
+		for(int i = 0; i< qtdCarros;i++) {
+			if(c[i].getFoiVendido()==false) {
+				list[i]= c[i];
+			}
+		}
+		
+		return list;
 	}
 
 	public String getMarca(int i) {
