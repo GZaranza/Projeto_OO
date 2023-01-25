@@ -23,7 +23,7 @@ public class ControleAnuncio {
 		return s;
 	}
 	
-	public Anuncio[] listaNaoVendidos() {
+	public Anuncio[] listarNaoVendidos() {
 		Anuncio[] list = new Anuncio[qtdAnuncios];
 		for(int i = 0; i< qtdAnuncios;i++) {
 			if(a[i].getCarro().getFoiVendido()==false) {
@@ -47,21 +47,27 @@ public class ControleAnuncio {
 		String[] anunciosFiltrados = new String[qtdAnuncios];
 		
 		if(marca.equals("")) {
-			
+		int aux =0;	
 		for(int i=0; i<qtdAnuncios;i++) {
 				if(a[i].getValor()>=valorMin && a[i].getValor()<=valorMax) {
-					anunciosFiltrados[i] = a[i].toString();
+					if(a[i].getCarro().getFoiVendido()==false) {
+						anunciosFiltrados[aux] = a[i].toString();
+					}
 				}
 		}
 			return anunciosFiltrados;
 		}
-		
+		int aux =0;
 		for(int i =0; i<qtdAnuncios;i++) {
 			if(a[i].getValor()>=valorMin && a[i].getValor()<=valorMax) {
 				if(marca.equals(a[i].getCarro().getMarca())){
-					anunciosFiltrados[i] = a[i].toString();
+					if(a[i].getCarro().getFoiVendido()==false) {
+						anunciosFiltrados[aux] = a[i].toString();
+						aux++;
+					}
 				}
 			}
+				
 		}
 		return anunciosFiltrados;
 	}

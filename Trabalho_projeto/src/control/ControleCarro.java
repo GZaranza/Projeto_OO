@@ -23,7 +23,7 @@ public class ControleCarro {
 		return s;
 	}
 	
-	public Carro[] listaNaoVendidos() {
+	public Carro[] listarNaoVendidos() {
 		Carro[] list = new Carro[qtdCarros];
 		for(int i = 0; i< qtdCarros;i++) {
 			if(c[i].getFoiVendido()==false) {

@@ -51,8 +51,7 @@ public class Main {
 				35684);
 		System.out.println(gol.toString());
 		
-		hb20= new Carro("Hyundai", "Hb20", "2018/2018", "Branco", "PGH7189", "4 portas ",
-				35684);
+		hb20= new Carro("Hyundai", "Hb20", "2018/2018", "Branco", "PGH7189", "4 portas ",35684);
 		uno= new Carro("Fiat", "Uno", "2011/2012", "Vermelho", "JKL5984", "2 portas ",
 					35684);
 		

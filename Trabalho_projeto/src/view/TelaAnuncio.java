@@ -61,7 +61,7 @@ public void inserirEditarAnuncio(int op, ControleDados d,TelaListaAnuncios p, in
 		if(op==1) {//opção da loja de anunciar
 		valorValor = new JTextField(200);
 		valorData = new JTextField(10);
-		listaCarros = new JComboBox<Carro>(new ControleCarro(dados).listaNaoVendidos());
+		listaCarros = new JComboBox<Carro>(new ControleCarro(dados).listarNaoVendidos());
 		listaCarros.setSelectedIndex(-1);
 		
 		labelCarro.setBounds(30, 20, 150, 25);
@@ -72,6 +72,8 @@ public void inserirEditarAnuncio(int op, ControleDados d,TelaListaAnuncios p, in
 		valorData.setBounds(180,80,280,25);
 		botSalvar.setBounds(30, 290, 150, 25);
 		botExcluir.setBounds(210,290,150,25);
+		
+		
 		
 		this.janela.add(labelCarro);
 		this.janela.add(labelValor);

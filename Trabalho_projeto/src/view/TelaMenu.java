@@ -28,7 +28,7 @@ public class TelaMenu implements ActionListener{
 		janela.add(titulo);
 		janela.add(loja);
 		janela.add(usuario);
-		;
+		
 		
 		janela.setSize(400, 250);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

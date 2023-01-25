@@ -59,7 +59,7 @@ public class TelaVenda implements ActionListener{
 		listaCliente = new JComboBox<Usuario>();
 		
 		if(op==1) {//fazer uma nova venda
-		listaAnuncio = new JComboBox<Anuncio>(new ControleAnuncio(dados).listaNaoVendidos());
+		listaAnuncio = new JComboBox<Anuncio>(new ControleAnuncio(dados).listarNaoVendidos());
 		valorValorVenda = new JTextField(4);
 		valorComprador = new JTextField(200);
 		valorFormaPag = new JTextField(200);
@@ -70,15 +70,15 @@ public class TelaVenda implements ActionListener{
 		
 		
 		labelAnuncio.setBounds(30, 20, 150, 25);
-		listaAnuncio.setBounds(180,20,180,25);
+		listaAnuncio.setBounds(180,20,280,25);
 		labelValorVenda.setBounds(30, 50, 150, 25);
-		valorValorVenda.setBounds(180,50,180,25);
+		valorValorVenda.setBounds(180,50,280,25);
 		labelComprador.setBounds(30, 80, 150, 25);
-		listaCliente.setBounds(180,80,180,25);
+		listaCliente.setBounds(180,80,280,25);
 		labelFormaPag.setBounds(30, 110, 150, 25);
-		valorFormaPag.setBounds(180,110,180,25);
+		valorFormaPag.setBounds(180,110,280,25);
 		labelDataVenda.setBounds(30, 140, 150, 25);
-		valorDataVenda.setBounds(180,140,180,25);
+		valorDataVenda.setBounds(180,140,280,25);
 		botSalvar.setBounds(30, 290, 170, 25);
 		botExcluir.setBounds(210,290,170,25);
 		

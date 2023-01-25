@@ -97,7 +97,7 @@ public class ControleDados {
 	}
 	
 	public boolean apagarAnuncio(int i) {
-		String anuncioExcluido = d.getAnuncios()[i].getCarro().toString();
+		String anuncioExcluido = d.getAnuncios()[i].toString();
 		if(i == (d.getQtdAnuncios()-1)) {
 			d.setQtdAnuncios((d.getQtdAnuncios()-1));
 			d.getAnuncios()[d.getQtdAnuncios()] = null;

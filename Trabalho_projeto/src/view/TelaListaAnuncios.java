@@ -41,10 +41,14 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 		dados = d;
 		opcao=op;
 		
+		listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
+		listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
+		listaAnunciosFeitos.updateUI();
+		
 		if(op==1) {//mostrar a lista de anuncios para o Usuario Loja
 			
-			listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
-			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
+			//listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
+			//listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
 			janela = new JFrame("Anúncios das Lojas");
 			titulo = new JLabel("Cadastro de anúncios");
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -53,8 +57,6 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			refresh.setBounds(200, 177, 100, 30);
 			listaAnunciosFeitos.setBounds(20, 50, 350, 120);
 
-			
-			
 			janela.setLayout(null);
 			janela.add(titulo);
 			janela.add(listaAnunciosFeitos);
@@ -66,11 +68,12 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			anunciaCarro.addActionListener(this);
 			refresh.addActionListener(this);
 			listaAnunciosFeitos.addListSelectionListener(this);
+			
 		}
 			
 		else {//mostrar a lista de anuncios para o usuario Pessoa	
-			listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
-			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
+			//listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
+			//listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
 			
 			janela = new JFrame("Anúncios de Carros");
 			titulo = new JLabel("Anúncios");

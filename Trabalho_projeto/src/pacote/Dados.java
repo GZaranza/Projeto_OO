@@ -28,9 +28,8 @@ public class Dados {
 		carros[2] = new Carro("Volkswagen", "Amarok", "2019/2020", "Prata", "ABC9876", "4 PORTAS ",
 				62679);
 		qtdCarros++;
-		
-		carros[3] = new Carro("Chevrolet", "Onix", "2010/2011", "Branco", "QWE1234", "4 PORTAS",
-				15564);
+		carros[3] = new Carro("Hyundai", "Hb20", "2018/2018", "Vermelho", "CVB6549", "2 portas ",
+				21587);
 		
 		qtdCarros++;
 		
