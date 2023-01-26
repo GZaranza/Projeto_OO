@@ -18,7 +18,7 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 	
 	private JFrame janela;
 	private JLabel titulo;
-	private JList<String> listaAnunciosFeitos = new JList<String>();
+	private JList<String> listaAnunciosFeitos;
 	private JButton anunciaCarro= new JButton("Anunciar");
 	private JButton aplicarFiltro = new JButton ("Filtrar");
 	private JButton refresh = new JButton("Atualizar");
@@ -29,34 +29,35 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 	private JLabel labelMarca = new JLabel("Marca: ");
 	private JTextField procuraMarca = new JTextField();
 	private static ControleDados dados;
-	private String[] listaStringAnuncios = new String[50];
+	private String[] listaStringAnuncios;
 	private int opcao;
 	private String marcaFiltro = new String();
 	private int minFiltro;
 	private int maxFiltro;
 	
 	
-	public TelaListaAnuncios(ControleDados d,int op) {
+	
+	public void mostrarDados(ControleDados d,int op) {
 		
 		dados = d;
 		opcao=op;
-		
 		listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
 		listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
-		listaAnunciosFeitos.updateUI();
+		janela = new JFrame("Anúncios de Carros");
+		titulo = new JLabel("Anúncios");
+		titulo.setFont(new Font("Arial", Font.BOLD, 20));
+		titulo.setBounds(200, 10, 250, 30);
 		
 		if(op==1) {//mostrar a lista de anuncios para o Usuario Loja
 			
-			//listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
-			//listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
-			janela = new JFrame("Anúncios das Lojas");
-			titulo = new JLabel("Cadastro de anúncios");
-			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(90, 10, 250, 30);
 			anunciaCarro.setBounds(70, 177, 100, 30);
 			refresh.setBounds(200, 177, 100, 30);
 			listaAnunciosFeitos.setBounds(20, 50, 350, 120);
-
+			janela.setLocationRelativeTo(null);
+			/*for(int i=0;i<dados.getQtdAnuncios();i++) {
+				System.out.println(listaStringAnuncios[i]);
+			}*/
+			
 			janela.setLayout(null);
 			janela.add(titulo);
 			janela.add(listaAnunciosFeitos);
@@ -72,13 +73,12 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 		}
 			
 		else {//mostrar a lista de anuncios para o usuario Pessoa	
-			//listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
-			//listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
 			
-			janela = new JFrame("Anúncios de Carros");
-			titulo = new JLabel("Anúncios");
-			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(200, 10, 250, 30);
+			/*for(int i=0;i<dados.getQtdAnuncios();i++) {
+				System.out.println(listaStringAnuncios[i]);
+			}*/
+			
+			
 			listaAnunciosFeitos.setBounds(20, 70, 450, 250);
 			labelMin.setBounds(140,50,90,10);
 			valorMin.setBounds(220,50,70,15);
@@ -88,7 +88,7 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			procuraMarca.setBounds(60,50,70,15);
 			refresh.setBounds(20, 330, 100, 30);
 			aplicarFiltro.setBounds(20, 10, 100, 20);
-			
+			janela.setLocationRelativeTo(null);
 			
 			janela.setLayout(null);
 			janela.add(titulo);
@@ -119,13 +119,13 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 		Object src = e.getSource();
 		if(opcao==1) {		
 			if(e.getValueIsAdjusting() && src == listaAnunciosFeitos) {
-				new TelaAnuncio().inserirEditarAnuncio(2, dados, this, listaAnunciosFeitos.getSelectedIndex());
+				new TelaAnuncio().mostrarDados(2, dados, this, listaAnunciosFeitos.getSelectedIndex());
 			}
 		}
 		
 		else if(opcao==2) {
 			if(e.getValueIsAdjusting() && src == listaAnunciosFeitos) {
-				new TelaAnuncio().inserirEditarAnuncio(3, dados, this, listaAnunciosFeitos.getSelectedIndex());
+				new TelaAnuncio().mostrarDados(3, dados, this, listaAnunciosFeitos.getSelectedIndex());
 			}
 		}
 		
@@ -138,7 +138,7 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 		Object src = e.getSource();
 		if(opcao==1) {
 			if(src == anunciaCarro) {
-				new TelaAnuncio().inserirEditarAnuncio(1, dados, this, 0);
+				new TelaAnuncio().mostrarDados(1, dados, this, 0);
 			}
 			
 		

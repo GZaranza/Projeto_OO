@@ -22,14 +22,15 @@ public class TelaUsuLoja implements ActionListener{
 	
 	
 	
-	public TelaUsuLoja() {
+	public void mostrarDados(ControleDados d) {
+		dados =d;
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(150, 0, 100, 35);
 		carros.setBounds(150, 80, 100, 30);
 		anuncios.setBounds(150, 120, 100, 30);
 		vendas.setBounds(150, 160, 100, 30);
 		lojas.setBounds(150, 40, 100, 30);
-		
+		janela.setLocationRelativeTo(null);
 		
 		janela.setLayout(null);
 		janela.add(titulo);
@@ -57,19 +58,19 @@ public class TelaUsuLoja implements ActionListener{
 		Object src = e.getSource();
 				
 				if(src == carros) {
-					new TelaListaCarros(dados);
+					new TelaListaCarros().mostrarDados(dados);
 				}
 				
 				if(src == lojas) {
-					new TelaLojas(dados);
+					new TelaLojas().mostrarDados(dados);
 				}
 				
 				if(src == anuncios) {
-					new TelaListaAnuncios(dados,1);//mudar para 1
+					new TelaListaAnuncios().mostrarDados(dados,1);//mudar para 1
 				}
 				
 				if(src == vendas) {
-					new TelaListaVendas(dados);
+					new TelaListaVendas().mostrarDados(dados);
 				}
 	}
 

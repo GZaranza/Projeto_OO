@@ -49,7 +49,7 @@ public class TelaAnuncio implements ActionListener {
 	private JLabel labelDesc = new JLabel("Descrição: ");
 	private JTextField valorDesc;
 	
-public void inserirEditarAnuncio(int op, ControleDados d,TelaListaAnuncios p, int pos) {
+public void mostrarDados(int op, ControleDados d,TelaListaAnuncios p, int pos) {
 		
 		opcao = op;
 		posicao=pos;
@@ -98,6 +98,7 @@ public void inserirEditarAnuncio(int op, ControleDados d,TelaListaAnuncios p, in
 			listaCarros = new JComboBox<Carro>(dados.getCarros());
 			listaCarros.setSelectedItem(dados.getAnuncios()[pos].getCarro());
 			listaCarros.setEnabled(false);
+			janela.setLocationRelativeTo(null);
 			
 			labelCarro.setBounds(30, 20, 150, 25);
 			listaCarros.setBounds(180,20,280,25);
@@ -135,6 +136,7 @@ public void inserirEditarAnuncio(int op, ControleDados d,TelaListaAnuncios p, in
 			valorLoja = new JTextField(dados.getAnuncios()[pos].getCarro().getLoja().getNome(),200);
 			valorValor = new JTextField(String.valueOf(dados.getAnuncios()[pos].getValor()),10);
 			valorData = new JTextField(dados.getAnuncios()[pos].getDt_anuncio(),200);
+			janela.setLocationRelativeTo(null);
 			
 			labelMarca.setBounds(30, 20, 150, 25);
 			valorMarca.setBounds(180,20,180,25);

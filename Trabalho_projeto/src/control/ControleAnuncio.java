@@ -45,19 +45,26 @@ public class ControleAnuncio {
 	
 	public String[] filtrarLista(String marca,int valorMin, int valorMax) {
 		String[] anunciosFiltrados = new String[qtdAnuncios];
+		System.out.println(marca);
+		System.out.println(valorMin);
+		System.out.println(valorMax);
 		
 		if(marca.equals("")) {
-		int aux =0;	
-		for(int i=0; i<qtdAnuncios;i++) {
-				if(a[i].getValor()>=valorMin && a[i].getValor()<=valorMax) {
-					if(a[i].getCarro().getFoiVendido()==false) {
-						anunciosFiltrados[aux] = a[i].toString();
+			int aux =0;	
+			for(int i=0; i<qtdAnuncios;i++) {
+					if(a[i].getValor()>=valorMin && a[i].getValor()<=valorMax) {
+						if(a[i].getCarro().getFoiVendido()==false) {
+							anunciosFiltrados[aux] = a[i].toString();
+							aux++;
+						}
 					}
-				}
+			}
+			return anunciosFiltrados;	
 		}
-			return anunciosFiltrados;
-		}
+		
 		int aux =0;
+		
+		
 		for(int i =0; i<qtdAnuncios;i++) {
 			if(a[i].getValor()>=valorMin && a[i].getValor()<=valorMax) {
 				if(marca.equals(a[i].getCarro().getMarca())){

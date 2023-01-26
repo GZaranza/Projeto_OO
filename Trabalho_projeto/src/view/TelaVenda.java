@@ -44,13 +44,8 @@ public class TelaVenda implements ActionListener{
 	private Usuario compradorEscolhido;
 	
 	
-	public void inserirEditarVenda(int op, ControleDados d,TelaListaVendas p, int pos) {
-		
-		
-		
-		
-		
-		
+	public void mostrarDados(int op, ControleDados d,TelaListaVendas p, int pos) {
+	
 		opcao = op;
 		posicao=pos;
 		dados=d;
@@ -67,7 +62,7 @@ public class TelaVenda implements ActionListener{
 		listaCliente = new JComboBox<Usuario>(dados.getUsuarios());
 		listaCliente.setSelectedIndex(-1);
 		//listaAnuncio.setSelectedIndex();
-		
+		janela.setLocationRelativeTo(null);
 		
 		labelAnuncio.setBounds(30, 20, 150, 25);
 		listaAnuncio.setBounds(180,20,280,25);
@@ -111,6 +106,7 @@ public class TelaVenda implements ActionListener{
 			valorFormaPag = new JTextField(dados.getVendas()[pos].getForma_pagamento(),200);
 			valorDataVenda = new JTextField(dados.getVendas()[pos].getDt_venda(),6);
 			listaAnuncio.setEnabled(false);
+			janela.setLocationRelativeTo(null);
 			
 			labelAnuncio.setBounds(30, 20, 150, 25);
 			listaAnuncio.setBounds(180,20,300,25);
@@ -124,7 +120,7 @@ public class TelaVenda implements ActionListener{
 			valorDataVenda.setBounds(180,170,300,25);
 			botSalvar.setBounds(30, 290, 150, 25);
 			botExcluir.setBounds(210,290,150,25);
-
+			janela.setLocationRelativeTo(null);
 			listaAnuncio.setEditable(false);
 			listaAnuncio.setBackground(Color.white);
 			

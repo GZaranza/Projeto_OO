@@ -25,7 +25,7 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 	private static ControleDados dados;
 	private String[] listaVendas = new String[50];
 	
-	public TelaListaVendas(ControleDados d) {
+	public void mostrarDados(ControleDados d) {
 		dados =d;
 		
 		listaVendas = new ControleVenda(dados).getStringVenda();
@@ -37,7 +37,7 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 		listaVendasRealizadas.setBounds(20, 50, 350, 120);
 		listaVendasRealizadas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		listaVendasRealizadas.setVisibleRowCount(10);
-		
+		janela.setLocationRelativeTo(null);
 		
 		janela.setLayout(null);
 		
@@ -60,7 +60,7 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 		// TODO Auto-generated method stub
 		Object src = e.getSource();
 		if(src == realizaVenda) {
-			new TelaVenda().inserirEditarVenda(1, dados, this, 0);
+			new TelaVenda().mostrarDados(1, dados, this, 0);
 		}
 		if(src == attListaVenda) {
 			listaVendasRealizadas.setListData(new ControleVenda(dados).getStringVenda());
@@ -73,7 +73,7 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 		// TODO Auto-generated method stub
 		Object src = e.getSource();		
 		if(e.getValueIsAdjusting() && src == listaVendasRealizadas) {
-			new TelaVenda().inserirEditarVenda(2, dados, this, listaVendasRealizadas.getSelectedIndex());
+			new TelaVenda().mostrarDados(2, dados, this, listaVendasRealizadas.getSelectedIndex());
 		}
 	}
 }

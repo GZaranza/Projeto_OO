@@ -67,12 +67,11 @@ public class ControleDados {
 		
 	}
 	
-	public boolean apagarCarro(int i) {
+	public void apagarCarro(int i) {
 		String carroExcluido = d.getCarros()[i].toString();
 		if(i == (d.getQtdCarros()-1)) {
 			d.setQtdCarros((d.getQtdCarros()-1));
 			d.getCarros()[d.getQtdCarros()] = null;
-			return true;
 		}
 		else {
 			int aux =0;
@@ -85,7 +84,6 @@ public class ControleDados {
 			}
 			d.getCarros()[d.getQtdCarros()]=null;
 			d.setQtdCarros(d.getQtdCarros()-1);
-			return true;
 		}
 	}
 	
@@ -96,12 +94,14 @@ public class ControleDados {
 		
 	}
 	
-	public boolean apagarAnuncio(int i) {
+	public void apagarAnuncio(int i) {
 		String anuncioExcluido = d.getAnuncios()[i].toString();
+		
 		if(i == (d.getQtdAnuncios()-1)) {
 			d.setQtdAnuncios((d.getQtdAnuncios()-1));
 			d.getAnuncios()[d.getQtdAnuncios()] = null;
-			return true;
+			
+			
 		}
 		else {
 			int aux =0;
@@ -114,7 +114,7 @@ public class ControleDados {
 			}
 			d.getAnuncios()[d.getQtdAnuncios()]=null;
 			d.setQtdAnuncios(d.getQtdAnuncios()-1);
-			return true;
+			
 		}
 	}
 	
@@ -125,12 +125,12 @@ public class ControleDados {
 		
 	}
 	
-	public boolean apagarVenda(int i) {
+	public void apagarVenda(int i) {
 		String vendaExcluida = d.getVendas()[i].toString();
 		if(i == (d.getQtdVendas()-1)) {
 			d.setQtdVendas((d.getQtdVendas()-1));
 			d.getVendas()[d.getQtdVendas()] = null;
-			return true;
+		
 		}
 		else {
 			int aux =0;
@@ -143,7 +143,7 @@ public class ControleDados {
 			}
 			d.getVendas()[d.getQtdVendas()]=null;
 			d.setQtdVendas(d.getQtdVendas()-1);
-			return true;
+		
 		}
 	}
 	

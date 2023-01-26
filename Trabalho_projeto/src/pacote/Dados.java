@@ -119,6 +119,9 @@ public class Dados {
 	}
 	
 	public Anuncio[] getAnuncios() {
+		for(int i=0;i<this.qtdAnuncios;i++) {
+			System.out.println(anuncios[i]);
+		}
 		return anuncios;
 	}
 	

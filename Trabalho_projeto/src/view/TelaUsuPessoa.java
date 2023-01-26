@@ -15,14 +15,15 @@ public class TelaUsuPessoa implements ActionListener{
 	private JLabel titulo = new JLabel("Clientes");
 	private static JButton pessoa = new JButton("Criar conta");
 	private static JButton anuncios = new JButton("Anuncios");
-	public static ControleDados dados = new ControleDados();
+	public static ControleDados dados;
 	
-	public TelaUsuPessoa() {
+	public void mostrarDados(ControleDados d) {
+		dados = d;
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(150, 0, 100, 35);
 		pessoa.setBounds(150, 80, 100, 30);
 		anuncios.setBounds(150, 40, 100, 30);
-		
+		janela.setLocationRelativeTo(null);
 		
 		janela.setLayout(null);
 		janela.add(titulo);
@@ -49,7 +50,7 @@ public class TelaUsuPessoa implements ActionListener{
 		}
 		
 		if(src == anuncios) {
-			new TelaListaAnuncios(dados,2);
+			new TelaListaAnuncios().mostrarDados(dados,2);
 		}
 	}
 	

@@ -16,11 +16,11 @@ public class TelaLojas implements ActionListener, ListSelectionListener{
 	private JLabel titulo = new JLabel("Lojas cadastradas");
 	private JButton cadastroLoja = new JButton("Cadastrar");
 	private JButton refreshLoja = new JButton("Atualizar");
-	private JList<String> listaLojaCadastradas = new JList<String>();
+	private JList<String> listaLojaCadastradas ;
 	private static ControleDados dados;
 	private String[] listaNomesLojas = new String[50];
 	
-	public TelaLojas(ControleDados d) {
+	public void mostrarDados(ControleDados d) {
 		dados =d;
 		
 		listaNomesLojas = new ControleLoja(dados).getNomeLoja();
@@ -30,7 +30,7 @@ public class TelaLojas implements ActionListener, ListSelectionListener{
 		cadastroLoja.setBounds(70, 177, 100, 30);
 		refreshLoja.setBounds(200, 177, 100, 30);
 		listaLojaCadastradas.setBounds(20, 50, 350, 120);
-		
+		janela.setLocationRelativeTo(null);
 		
 		janela.setLayout(null);
 		

@@ -60,6 +60,7 @@ public class TelaCarro implements ActionListener{
 		valorDesc = new JTextField(200);
 		listaLojas = new JComboBox<Loja>(dados.getLojas());
 		listaLojas.setSelectedIndex(-1);
+		janela.setLocationRelativeTo(null);
 		
 		labelMarca.setBounds(30, 20, 150, 25);
 		valorMarca.setBounds(180,20,180,25);
@@ -116,6 +117,7 @@ public class TelaCarro implements ActionListener{
 			valorDesc = new JTextField(dados.getCarros()[pos].getDescricao(),200);
 			listaLojas = new JComboBox<Loja>(dados.getLojas());
 			listaLojas.setSelectedItem(dados.getCarros()[pos].getLoja());
+			janela.setLocationRelativeTo(null);
 			
 			labelMarca.setBounds(30, 20, 150, 25);
 			valorMarca.setBounds(180,20,180,25);

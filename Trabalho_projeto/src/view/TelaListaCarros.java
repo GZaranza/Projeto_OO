@@ -20,7 +20,7 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 	private static ControleDados dados;
 	private String[] listaModelos = new String[50];
 	
-	public TelaListaCarros(ControleDados d) {
+	public void mostrarDados(ControleDados d) {
 		dados =d;
 		
 		listaModelos = new ControleCarro(dados).getModeloCarro();
@@ -32,7 +32,7 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 		listaCarrosCadastrados.setBounds(20, 50, 350, 120);
 		listaCarrosCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		listaCarrosCadastrados.setVisibleRowCount(10);
-		
+		janela.setLocationRelativeTo(null);
 		
 		janela.setLayout(null);
 		

@@ -21,7 +21,7 @@ public class TelaMenu implements ActionListener{
 		titulo.setBounds(120, 10, 150, 30);
 		loja.setBounds(140, 100, 100, 30);
 		usuario.setBounds(140, 150, 100, 30);
-		
+		janela.setLocationRelativeTo(null);
 		
 		janela.setLayout(null);
 		
@@ -50,12 +50,12 @@ public class TelaMenu implements ActionListener{
 		Object src = e.getSource();
 		
 		if(src == loja) {
-			new TelaUsuLoja();
+			new TelaUsuLoja().mostrarDados(dados);;
 			
 		}
 		
 		if(src == usuario) {
-			new TelaUsuPessoa();
+			new TelaUsuPessoa().mostrarDados(dados);;
 		}
 	}
 
