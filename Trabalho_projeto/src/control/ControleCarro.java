@@ -24,10 +24,12 @@ public class ControleCarro {
 	}
 	
 	public Carro[] listarNaoVendidos() {
+		int aux=0;
 		Carro[] list = new Carro[qtdCarros];
 		for(int i = 0; i< qtdCarros;i++) {
 			if(c[i].getFoiVendido()==false) {
-				list[i]= c[i];
+				list[aux]= c[i];
+				aux++;
 			}
 		}
 		

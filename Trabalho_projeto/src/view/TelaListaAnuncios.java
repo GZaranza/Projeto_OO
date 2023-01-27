@@ -54,9 +54,6 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			refresh.setBounds(200, 177, 100, 30);
 			listaAnunciosFeitos.setBounds(20, 50, 350, 120);
 			janela.setLocationRelativeTo(null);
-			/*for(int i=0;i<dados.getQtdAnuncios();i++) {
-				System.out.println(listaStringAnuncios[i]);
-			}*/
 			
 			janela.setLayout(null);
 			janela.add(titulo);
@@ -73,11 +70,6 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 		}
 			
 		else {//mostrar a lista de anuncios para o usuario Pessoa	
-			
-			/*for(int i=0;i<dados.getQtdAnuncios();i++) {
-				System.out.println(listaStringAnuncios[i]);
-			}*/
-			
 			
 			listaAnunciosFeitos.setBounds(20, 70, 450, 250);
 			labelMin.setBounds(140,50,90,10);

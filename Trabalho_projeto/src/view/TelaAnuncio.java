@@ -63,6 +63,7 @@ public void mostrarDados(int op, ControleDados d,TelaListaAnuncios p, int pos) {
 		valorData = new JTextField(10);
 		listaCarros = new JComboBox<Carro>(new ControleCarro(dados).listarNaoVendidos());
 		listaCarros.setSelectedIndex(-1);
+		janela.setLocationRelativeTo(null);
 		
 		labelCarro.setBounds(30, 20, 150, 25);
 		listaCarros.setBounds(180,20,280,25);

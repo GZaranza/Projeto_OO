@@ -154,20 +154,20 @@ public class TelaVenda implements ActionListener{
 		Object src = e.getSource();
 		if(src == botSalvar) {
 			
-				if(opcao == 1) {
-					novoDado[0] = Integer.toString(dados.getQtdVendas());	
-				}
+			if(opcao == 1) {
+				novoDado[0] = Integer.toString(dados.getQtdVendas());	
+			}
 				
-				else {
-					novoDado[0]=Integer.toString(posicao);
-				}
-				novoDado[1] = valorValorVenda.getText();
-				novoDado[2] = valorFormaPag.getText();
-				novoDado[3] = valorDataVenda.getText();
-				anuncioEscolhido = (Anuncio) listaAnuncio.getSelectedItem();
-				compradorEscolhido = (Usuario) listaCliente.getSelectedItem();
-				dados.inserirEditarVenda(novoDado,anuncioEscolhido,compradorEscolhido);
-				janela.dispose();
+			else {
+				novoDado[0]=Integer.toString(posicao);
+			}
+			novoDado[1] = valorValorVenda.getText();
+			novoDado[2] = valorFormaPag.getText();
+			novoDado[3] = valorDataVenda.getText();
+			anuncioEscolhido = (Anuncio) listaAnuncio.getSelectedItem();
+			compradorEscolhido = (Usuario) listaCliente.getSelectedItem();
+			dados.inserirEditarVenda(novoDado,anuncioEscolhido,compradorEscolhido);
+			janela.dispose();
 		}	
 				
 		if(src== botExcluir) {

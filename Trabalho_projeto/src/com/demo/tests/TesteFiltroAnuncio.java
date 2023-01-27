@@ -13,14 +13,14 @@ import pacote.Loja;
 import pacote.Usuario;
 import pacote.Venda;
 
-class Testes {
+class TesteFiltroAnuncio {
 
 	/*Testando o metodo filtrarLista que é usado na lista de anuncios
 	  para filtrar os anuncios por Marca, valor mínimo e valor máximo */	
 	@Test
-	void testFiltrarLista() {
+	void test() {
 		
-		/*int numCarros = 4;
+		int numCarros = 4;
 		Carro[] carros = new Carro[numCarros];
 		Loja[] lojas = new Loja[50];
 		Endereco[] enderecos = new Endereco[50];
@@ -68,7 +68,7 @@ class Testes {
 		assertEquals(listaEsperada[3],listaEncontrada[3]);
 		
 		
-		*/
+		
 	}
 
 }
