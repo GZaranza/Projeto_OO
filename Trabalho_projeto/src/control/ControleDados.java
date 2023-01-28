@@ -1,7 +1,7 @@
 package control;
 
 
-import pacote.*;
+import model.*;
 
 public class ControleDados {
 

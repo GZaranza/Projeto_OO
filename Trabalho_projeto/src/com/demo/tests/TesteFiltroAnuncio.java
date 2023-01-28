@@ -6,12 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import control.ControleAnuncio;
 import control.ControleDados;
-import pacote.*;
-import pacote.Carro;
-import pacote.Endereco;
-import pacote.Loja;
-import pacote.Usuario;
-import pacote.Venda;
+import model.*;
 
 class TesteFiltroAnuncio {
 
@@ -59,7 +54,7 @@ class TesteFiltroAnuncio {
 		listaEsperada[0] = anuncios[1].toString();//os demais itens da listaEsperada são nulos
 		
 		//Filtrando a lista de anuncios com o metodo filtrarLista
-		String[] listaEncontrada = new ControleAnuncio(dados).filtrarLista(marcaFiltro, valorMinFiltro, valorMaxFiltro);
+		String[] listaEncontrada = new ControleAnuncio(dados).filtrarAnuncios(marcaFiltro, valorMinFiltro, valorMaxFiltro);
 		
 		//Comparando item a item da listaEsperada com a listaEncontrada
 		assertEquals(listaEsperada[0],listaEncontrada[0]);

@@ -15,9 +15,9 @@ import control.ControleAnuncio;
 import control.ControleDados;
 import control.ControleLoja;
 import control.ControleUsuario;
-import pacote.Anuncio;
-import pacote.Loja;
-import pacote.Usuario;
+import model.Anuncio;
+import model.Loja;
+import model.Usuario;
 
 public class TelaVenda implements ActionListener{
 
@@ -51,7 +51,7 @@ public class TelaVenda implements ActionListener{
 		posicao=pos;
 		dados=d;
 		
-		listaNomeCliente = new ControleUsuario(dados).getNomeUsuario();
+		listaNomeCliente = new ControleUsuario(dados).listarUsuario();
 		listaCliente = new JComboBox<Usuario>();
 		
 		if(op==1) {//fazer uma nova venda

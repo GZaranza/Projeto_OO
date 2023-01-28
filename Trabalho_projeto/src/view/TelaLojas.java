@@ -21,7 +21,7 @@ public class TelaLojas implements ActionListener, ListSelectionListener{
 	public void mostrarDados(ControleDados d) {
 		dados =d;
 		
-		listaNomesLojas = new ControleLoja(dados).getNomeLoja();
+		listaNomesLojas = new ControleLoja(dados).listarLoja();
 		listaLojaCadastradas = new JList<String>(listaNomesLojas);
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		listaLojaCadastradas.setFont(new Font("Arial",Font.PLAIN, 18));

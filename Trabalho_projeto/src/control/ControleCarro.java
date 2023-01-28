@@ -1,6 +1,6 @@
 package control;
 
-import pacote.*;
+import model.*;
 
 public class ControleCarro {
 	private Carro[] c;
@@ -9,31 +9,6 @@ public class ControleCarro {
 	public ControleCarro(ControleDados d) {
 		c =d.getCarros();
 		qtdCarros =d.getQtdCarros();
-	}
-	
-	public String[] getModeloCarro() {
-		String[] s = new String[qtdCarros];
-		
-		for(int i = 0; i< qtdCarros;i++) {
-			if(c[i].getFoiVendido()==false) {
-				s[i]= c[i].getModelo() +' '+ c[i].getAno();
-			}
-		}
-		
-		return s;
-	}
-	
-	public Carro[] listarNaoVendidos() {
-		int aux=0;
-		Carro[] list = new Carro[qtdCarros];
-		for(int i = 0; i< qtdCarros;i++) {
-			if(c[i].getFoiVendido()==false) {
-				list[aux]= c[i];
-				aux++;
-			}
-		}
-		
-		return list;
 	}
 
 	public String getMarca(int i) {
@@ -72,8 +47,30 @@ public class ControleCarro {
 		this.qtdCarros = qtdCarros;
 	}
 	
+	public String[] listarCarro() {
+		String[] s = new String[qtdCarros];
+		
+		for(int i = 0; i< qtdCarros;i++) {
+			if(c[i].getFoiVendido()==false) {
+				s[i]= c[i].getModelo() +' '+ c[i].getAno();
+			}
+		}
+		
+		return s;
+	}
 	
-
+	public Carro[] listarNaoVendidos() {
+		int aux=0;
+		Carro[] list = new Carro[qtdCarros];
+		for(int i = 0; i< qtdCarros;i++) {
+			if(c[i].getFoiVendido()==false) {
+				list[aux]= c[i];
+				aux++;
+			}
+		}
+		
+		return list;
+	}
 	
 	
 	

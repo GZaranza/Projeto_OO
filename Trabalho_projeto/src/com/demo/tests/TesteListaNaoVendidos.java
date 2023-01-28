@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import control.ControleCarro;
 import control.ControleDados;
-import pacote.Anuncio;
-import pacote.Carro;
-import pacote.Endereco;
-import pacote.Loja;
-import pacote.Usuario;
-import pacote.Venda;
+import model.Anuncio;
+import model.Carro;
+import model.Endereco;
+import model.Loja;
+import model.Usuario;
+import model.Venda;
 
 class TesteListaNaoVendidos {
 

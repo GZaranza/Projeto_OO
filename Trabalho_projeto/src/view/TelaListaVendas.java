@@ -28,7 +28,7 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 	public void mostrarDados(ControleDados d) {
 		dados =d;
 		
-		listaVendas = new ControleVenda(dados).getStringVenda();
+		listaVendas = new ControleVenda(dados).listarVendas();
 		listaVendasRealizadas = new JList<String>(listaVendas);
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		listaVendasRealizadas.setFont(new Font("Arial",Font.PLAIN, 18));
@@ -68,7 +68,7 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 			new TelaVenda().mostrarDados(1, dados, this, 0);
 		}
 		if(src == attListaVenda) {
-			listaVendasRealizadas.setListData(new ControleVenda(dados).getStringVenda());
+			listaVendasRealizadas.setListData(new ControleVenda(dados).listarVendas());
 			listaVendasRealizadas.updateUI();
 		}
 	}

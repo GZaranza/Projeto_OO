@@ -1,6 +1,6 @@
 package control;
 
-import pacote.*;
+import model.*;
 
 public class ControleAnuncio {
 	private Anuncio[] a;
@@ -9,33 +9,7 @@ public class ControleAnuncio {
 	public ControleAnuncio(ControleDados d) {
 		a = d.getAnuncios();
 		qtdAnuncios = d.getQtdAnuncios();
-	}
-	
-	public String[] getAnuncioString() {
-		String[] s = new String[qtdAnuncios];
-		
-		for(int i=0; i<qtdAnuncios;i++) {
-			if(a[i].getCarro().getFoiVendido()==false) {	
-				s[i] = a[i].toString();
-			}
-		}
-		
-		return s;
-	}
-	
-	public Anuncio[] listarNaoVendidos() {
-		Anuncio[] list = new Anuncio[qtdAnuncios];
-		int aux=0;
-		for(int i = 0; i< qtdAnuncios;i++) {
-			if(a[i].getCarro().getFoiVendido()==false) {
-				list[aux]= a[i];
-				aux++;
-			}
-		}
-		
-		return list;
-	}
-	
+	}	
 	
 	public int getQtdAnuncios() {
 		return qtdAnuncios;
@@ -45,7 +19,7 @@ public class ControleAnuncio {
 		this.qtdAnuncios = qtdAnuncios;
 	}
 	
-	public String[] filtrarLista(String marca,int valorMin, int valorMax) {
+	public String[] filtrarAnuncios(String marca,int valorMin, int valorMax) {
 		String[] anunciosFiltrados = new String[qtdAnuncios];
 
 		if(marca.equals("")) {
@@ -78,4 +52,28 @@ public class ControleAnuncio {
 		return anunciosFiltrados;
 	}
 	
+	public String[] listarAnuncios() {
+		String[] s = new String[qtdAnuncios];
+		
+		for(int i=0; i<qtdAnuncios;i++) {
+			if(a[i].getCarro().getFoiVendido()==false) {	
+				s[i] = a[i].toString();
+			}
+		}
+		
+		return s;
+	}
+	
+	public Anuncio[] listarNaoVendidos() {
+		Anuncio[] list = new Anuncio[qtdAnuncios];
+		int aux=0;
+		for(int i = 0; i< qtdAnuncios;i++) {
+			if(a[i].getCarro().getFoiVendido()==false) {
+				list[aux]= a[i];
+				aux++;
+			}
+		}
+		
+		return list;
+	}
 }

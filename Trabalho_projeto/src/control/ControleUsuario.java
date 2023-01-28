@@ -1,6 +1,6 @@
 package control;
 
-import pacote.*;
+import model.*;
 
 public class ControleUsuario {
 	private Usuario[] u;
@@ -9,14 +9,6 @@ public class ControleUsuario {
 	public ControleUsuario(ControleDados d) {
 		u = d.getUsuarios();
 		qtdUsuarios = d.getQtdUsuarios();
-	}
-	
-	public String[] getNomeUsuario() {
-		String s[] = new String[qtdUsuarios];
-		for(int i =0; i<qtdUsuarios;i++) {
-			s[i]=u[i].toString();
-		}
-		return s;
 	}
 
 	public int getQtdUsuarios() {
@@ -27,5 +19,11 @@ public class ControleUsuario {
 		this.qtdUsuarios = qtdUsuarios;
 	}
 	
-	
+	public String[] listarUsuario() {
+		String s[] = new String[qtdUsuarios];
+		for(int i =0; i<qtdUsuarios;i++) {
+			s[i]=u[i].toString();
+		}
+		return s;
+	}
 }

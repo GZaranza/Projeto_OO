@@ -44,7 +44,7 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 		
 		if(op==1) {//mostrar a lista de anuncios para o Usuario Loja
 			
-			listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
+			listaStringAnuncios = new ControleAnuncio(dados).listarAnuncios();
 			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
 			janela = new JFrame("Anúncios de Carros");
 			titulo = new JLabel("Lista de Anúncios");
@@ -76,7 +76,7 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			
 		else {//mostrar a lista de anuncios para o usuario Pessoa	
 			
-			listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
+			listaStringAnuncios = new ControleAnuncio(dados).listarAnuncios();
 			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
 			janela = new JFrame("Anúncios de Carros");
 			titulo = new JLabel("Anúncios");
@@ -155,13 +155,13 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			
 		
 			if(src== refresh) {
-				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).getAnuncioString());
+				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).listarAnuncios());
 				listaAnunciosFeitos.updateUI();
 			}
 		}
 		if(opcao==2) {
 			if(src== refresh) {
-				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).getAnuncioString());
+				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).listarAnuncios());
 				listaAnunciosFeitos.updateUI();
 			}
 			
@@ -182,7 +182,7 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 					maxFiltro = Integer.parseInt(valorMax.getText());
 				}
 				
-				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).filtrarLista(marcaFiltro,minFiltro,maxFiltro));
+				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).filtrarAnuncios(marcaFiltro,minFiltro,maxFiltro));
 				listaAnunciosFeitos.updateUI();
 			}
 		}

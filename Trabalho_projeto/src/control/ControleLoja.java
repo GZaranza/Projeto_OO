@@ -1,6 +1,6 @@
 package control;
 
-import pacote.*;
+import model.*;
 
 public class ControleLoja {
 	private Loja[] l;
@@ -10,14 +10,6 @@ public class ControleLoja {
 		l =d.getLojas();
 		qtdLojas =d.getQtdLojas();
 	}
-	
-	public String[] getNomeLoja() {
-		String[] s = new String[qtdLojas];
-		for(int i = 0; i< qtdLojas;i++) {
-			s[i]= l[i].getNome() ;
-		}
-		return s;
-	}
 		
 	public int getQtdLojas() {
 		return qtdLojas;
@@ -26,4 +18,13 @@ public class ControleLoja {
 	public void setQtdLojas(int qtdLojas) {
 		this.qtdLojas = qtdLojas;
 	}
+	
+	public String[] listarLoja() {
+		String[] s = new String[qtdLojas];
+		for(int i = 0; i< qtdLojas;i++) {
+			s[i]= l[i].getNome() ;
+		}
+		return s;
+	}
+	
 }

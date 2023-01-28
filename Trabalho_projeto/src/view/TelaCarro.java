@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.*;
-import pacote.Loja;
+import model.Loja;
 
 public class TelaCarro implements ActionListener{
 	
@@ -47,7 +47,7 @@ public class TelaCarro implements ActionListener{
 		posicao=pos;
 		dados=d;
 		
-		listaNomeLojas = new ControleLoja(dados).getNomeLoja();
+		listaNomeLojas = new ControleLoja(dados).listarLoja();
 		listaLojas = new JComboBox<Loja>();
 		
 		if(op==1) {//opção da loja de cadastrar

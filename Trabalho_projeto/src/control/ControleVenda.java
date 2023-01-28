@@ -1,6 +1,6 @@
 package control;
 
-import pacote.*;
+import model.*;
 
 public class ControleVenda {
 	private Venda[] v;
@@ -11,15 +11,6 @@ public class ControleVenda {
 		v=d.getVendas();
 		qtdVendas = d.getQtdVendas();
 	}
-	
-	public String[] getStringVenda() {
-		String[]s = new String[qtdVendas];
-		for(int i = 0; i<qtdVendas;i++) {
-			s[i]= v[i].toString();
-		}
-		return s;
-	}
-	
 	
 	public Anuncio getAnuncio(int i){
 		return v[i].getAnuncio_venda();
@@ -53,5 +44,12 @@ public class ControleVenda {
 		this.qtdVendas = qtdVendas;
 	}
 	
+	public String[] listarVendas() {
+		String[]s = new String[qtdVendas];
+		for(int i = 0; i<qtdVendas;i++) {
+			s[i]= v[i].toString();
+		}
+		return s;
+	}
 	
 }

@@ -23,7 +23,7 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 	public void mostrarDados(ControleDados d) {
 		dados =d;
 		
-		listaModelos = new ControleCarro(dados).getModeloCarro();
+		listaModelos = new ControleCarro(dados).listarCarro();
 		listaCarrosCadastrados = new JList<String>(listaModelos);
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		listaCarrosCadastrados.setFont(new Font("Arial",Font.PLAIN, 18));
@@ -62,7 +62,7 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 			new TelaCarro().inserirEditarCarro(1, dados, this, 0);
 		}
 		if(src == attListaCarro) {
-			listaCarrosCadastrados.setListData(new ControleCarro(dados).getModeloCarro());
+			listaCarrosCadastrados.setListData(new ControleCarro(dados).listarCarro());
 			listaCarrosCadastrados.updateUI();
 		}
 	}
