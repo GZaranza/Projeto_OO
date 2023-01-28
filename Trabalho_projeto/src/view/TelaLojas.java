@@ -14,8 +14,6 @@ import java.awt.event.*;
 public class TelaLojas implements ActionListener, ListSelectionListener{
 	private JFrame janela = new JFrame("Lista Lojas");
 	private JLabel titulo = new JLabel("Lojas cadastradas");
-	private JButton cadastroLoja = new JButton("Cadastrar");
-	private JButton refreshLoja = new JButton("Atualizar");
 	private JList<String> listaLojaCadastradas ;
 	private static ControleDados dados;
 	private String[] listaNomesLojas = new String[50];
@@ -25,22 +23,20 @@ public class TelaLojas implements ActionListener, ListSelectionListener{
 		
 		listaNomesLojas = new ControleLoja(dados).getNomeLoja();
 		listaLojaCadastradas = new JList<String>(listaNomesLojas);
-		titulo.setFont(new Font("Arial", Font.BOLD, 20));
-		titulo.setBounds(90, 10, 250, 30);
-		cadastroLoja.setBounds(70, 177, 100, 30);
-		refreshLoja.setBounds(200, 177, 100, 30);
-		listaLojaCadastradas.setBounds(20, 50, 350, 120);
+		titulo.setFont(new Font("Arial", Font.BOLD, 30));
+		listaLojaCadastradas.setFont(new Font("Arial",Font.PLAIN, 18));
+		titulo.setBounds(150, 10, 300, 40);
+		listaLojaCadastradas.setBounds(20, 70, 540, 430);
 		janela.setLocationRelativeTo(null);
 		
 		janela.setLayout(null);
 		
 		janela.add(titulo);
 		janela.add(listaLojaCadastradas);
-		janela.add(cadastroLoja);
-		janela.add(refreshLoja);
 		
-		janela.setSize(400, 250);
+		janela.setSize(600, 600);
 		janela.setVisible(true);
+		janela.setLocationRelativeTo(null);
 	}
 	
 	

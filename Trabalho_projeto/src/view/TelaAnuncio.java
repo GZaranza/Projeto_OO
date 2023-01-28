@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,7 +22,7 @@ public class TelaAnuncio implements ActionListener {
 	private JLabel labelCarro = new JLabel("Carro: ");
 	private JLabel labelValor = new JLabel("Valor(R$): ");
 	private JTextField valorValor;
-	private JLabel labelData = new JLabel("Data (dd/MM/aaaa): ");
+	private JLabel labelData = new JLabel("Data de anúncio: ");
 	private JTextField valorData ;
 	private String[] listaModelosCarros = new String[50];
 	private JComboBox<Carro> listaCarros = new JComboBox<Carro>();
@@ -66,14 +67,22 @@ public void mostrarDados(int op, ControleDados d,TelaListaAnuncios p, int pos) {
 		janela.setLocationRelativeTo(null);
 		
 		labelCarro.setBounds(30, 20, 150, 25);
-		listaCarros.setBounds(180,20,280,25);
+		listaCarros.setBounds(180,20,360,25);
 		labelValor.setBounds(30, 50, 150, 25);
-		valorValor.setBounds(180,50,280,25);
-		labelData.setBounds(30, 80, 150, 25);
-		valorData.setBounds(180,80,280,25);
-		botSalvar.setBounds(30, 290, 150, 25);
-		botExcluir.setBounds(210,290,150,25);
+		valorValor.setBounds(180,50,360,25);
+		labelData.setBounds(30, 80,200, 25);
+		valorData.setBounds(230,80,310,25);
+		botSalvar.setBounds(130, 520, 150, 30);
+		botExcluir.setBounds(320, 520, 150, 30);
 		
+		labelCarro.setFont(new Font("Arial",Font.PLAIN, 25));
+		listaCarros.setFont(new Font("Arial",Font.PLAIN, 18));
+		labelValor.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorValor.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelData.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorData.setFont(new Font("Arial",Font.PLAIN, 25));
+		botSalvar.setFont(new Font("Arial",Font.PLAIN, 25));
+		botExcluir.setFont(new Font("Arial",Font.PLAIN, 25));
 		
 		
 		this.janela.add(labelCarro);
@@ -86,8 +95,9 @@ public void mostrarDados(int op, ControleDados d,TelaListaAnuncios p, int pos) {
 		this.janela.add(botExcluir);
 		
 		this.janela.setLayout(null);
-		this.janela.setSize(500, 400);
-		this.janela.setVisible(true);
+		janela.setSize(600, 600);
+		janela.setVisible(true);
+		janela.setLocationRelativeTo(null);
 
 		botSalvar.addActionListener(this);
 		botExcluir.addActionListener(this);
@@ -99,16 +109,24 @@ public void mostrarDados(int op, ControleDados d,TelaListaAnuncios p, int pos) {
 			listaCarros = new JComboBox<Carro>(dados.getCarros());
 			listaCarros.setSelectedItem(dados.getAnuncios()[pos].getCarro());
 			listaCarros.setEnabled(false);
-			janela.setLocationRelativeTo(null);
 			
 			labelCarro.setBounds(30, 20, 150, 25);
-			listaCarros.setBounds(180,20,280,25);
+			listaCarros.setBounds(180,20,360,25);
 			labelValor.setBounds(30, 50, 150, 25);
-			valorValor.setBounds(180,50,280,25);
-			labelData.setBounds(30, 80, 150, 25);
-			valorData.setBounds(180,80,280,25);
-			botSalvar.setBounds(30, 290, 150, 25);
-			botExcluir.setBounds(210,290,150,25);
+			valorValor.setBounds(180,50,360,25);
+			labelData.setBounds(30, 80,200, 25);
+			valorData.setBounds(230,80,310,25);
+			botSalvar.setBounds(130, 520, 150, 30);
+			botExcluir.setBounds(320, 520, 150, 30);
+			
+			labelCarro.setFont(new Font("Arial",Font.PLAIN, 25));
+			listaCarros.setFont(new Font("Arial",Font.PLAIN, 18));
+			labelValor.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorValor.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelData.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorData.setFont(new Font("Arial",Font.PLAIN, 25));
+			botSalvar.setFont(new Font("Arial",Font.PLAIN, 25));
+			botExcluir.setFont(new Font("Arial",Font.PLAIN, 25));
 			
 			this.janela.add(labelCarro);
 			this.janela.add(labelValor);
@@ -120,8 +138,9 @@ public void mostrarDados(int op, ControleDados d,TelaListaAnuncios p, int pos) {
 			this.janela.add(botExcluir);
 			
 			this.janela.setLayout(null);
-			this.janela.setSize(500, 400);
-			this.janela.setVisible(true);
+			janela.setSize(600, 600);
+			janela.setVisible(true);
+			janela.setLocationRelativeTo(null);
 
 			botSalvar.addActionListener(this);
 			botExcluir.addActionListener(this);
@@ -140,25 +159,46 @@ public void mostrarDados(int op, ControleDados d,TelaListaAnuncios p, int pos) {
 			janela.setLocationRelativeTo(null);
 			
 			labelMarca.setBounds(30, 20, 150, 25);
-			valorMarca.setBounds(180,20,180,25);
+			valorMarca.setBounds(225,20,180,25);
 			labelModelo.setBounds(30, 50, 150, 25);
-			valorModelo.setBounds(180,50,180,25);
+			valorModelo.setBounds(225,50,180,25);
 			labelAno.setBounds(30, 80, 150, 25);
-			valorAno.setBounds(180,80,180,25);
+			valorAno.setBounds(225,80,180,25);
 			labelCor.setBounds(30, 110, 150, 25);
-			valorCor.setBounds(180,110,180,25);
+			valorCor.setBounds(225,110,180,25);
 			labelPlaca.setBounds(30, 140, 150, 25);
-			valorPlaca.setBounds(180,140,180,25);
-			labelKm.setBounds(30, 170, 150, 25);
-			valorKm.setBounds(180,170,180,25);
+			valorPlaca.setBounds(225,140,180,25);
+			labelKm.setBounds(30, 170, 180, 25);
+			valorKm.setBounds(225,170,180,25);
 			labelDesc.setBounds(30, 200, 150, 25);
-			valorDesc.setBounds(180,200,180,25);
+			valorDesc.setBounds(225,200,400,25);
 			labelValor.setBounds(30, 230, 150, 25);
-			valorValor.setBounds(180,230,180,25);
+			valorValor.setBounds(225,230,180,25);
 			labelLoja.setBounds(30, 260, 150, 25);
-			valorLoja.setBounds(180,260,180,25);
-			labelData.setBounds(30, 290, 150, 25);
-			valorData.setBounds(180,290,180,25);
+			valorLoja.setBounds(225,260,180,25);
+			labelData.setBounds(30, 290, 240, 25);
+			valorData.setBounds(225,290,180,25);
+			
+			labelMarca.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorMarca.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelModelo.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorModelo.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelAno.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorAno.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelCor.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorCor.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelPlaca.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorPlaca.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelKm.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorKm.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelDesc.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorDesc.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelValor.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorValor.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelLoja.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorLoja.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelData.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorData.setFont(new Font("Arial",Font.PLAIN, 25));
 			
 			valorMarca.setEditable(false);
 			valorModelo.setEditable(false);
@@ -207,8 +247,9 @@ public void mostrarDados(int op, ControleDados d,TelaListaAnuncios p, int pos) {
 			this.janela.add(valorLoja);
 			
 			this.janela.setLayout(null);
-			this.janela.setSize(500, 400);
-			this.janela.setVisible(true);
+			janela.setSize(800, 800);
+			janela.setVisible(true);
+			janela.setLocationRelativeTo(null);
 			
 		}
 		

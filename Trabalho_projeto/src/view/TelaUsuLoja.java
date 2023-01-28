@@ -13,7 +13,7 @@ import java.awt.event.*;
 public class TelaUsuLoja implements ActionListener{
 		
 	private JFrame janela = new JFrame("Loja");
-	private JLabel titulo = new JLabel("Lojas");
+	private JLabel titulo = new JLabel("Menu lojas");
 	private static JButton carros = new JButton("Carros");
 	private static JButton anuncios = new JButton("Anuncios");
 	private static JButton vendas = new JButton("Vendas");
@@ -24,12 +24,17 @@ public class TelaUsuLoja implements ActionListener{
 	
 	public void mostrarDados(ControleDados d) {
 		dados =d;
-		titulo.setFont(new Font("Arial", Font.BOLD, 20));
-		titulo.setBounds(150, 0, 100, 35);
-		carros.setBounds(150, 80, 100, 30);
-		anuncios.setBounds(150, 120, 100, 30);
-		vendas.setBounds(150, 160, 100, 30);
-		lojas.setBounds(150, 40, 100, 30);
+		titulo.setFont(new Font("Arial", Font.BOLD, 40));
+		carros.setFont(new Font("Arial", Font.BOLD, 40));
+		anuncios.setFont(new Font("Arial", Font.BOLD, 40));
+		vendas.setFont(new Font("Arial", Font.BOLD, 40));
+		lojas.setFont(new Font("Arial", Font.BOLD, 40));
+		
+		titulo.setBounds(190, 10, 220, 45);
+		carros.setBounds(175, 100, 250, 40);
+		anuncios.setBounds(175, 200, 250, 40);
+		vendas.setBounds(175, 300, 250, 40);
+		lojas.setBounds(175, 400, 250, 40);
 		janela.setLocationRelativeTo(null);
 		
 		janela.setLayout(null);
@@ -41,8 +46,9 @@ public class TelaUsuLoja implements ActionListener{
 		
 		
 		
-		janela.setSize(400, 250);
+		janela.setSize(600, 600);
 		janela.setVisible(true);
+		janela.setLocationRelativeTo(null);
 		
 		carros.addActionListener(this);
 		anuncios.addActionListener(this);

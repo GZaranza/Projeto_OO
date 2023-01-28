@@ -30,11 +30,15 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 		
 		listaVendas = new ControleVenda(dados).getStringVenda();
 		listaVendasRealizadas = new JList<String>(listaVendas);
-		titulo.setFont(new Font("Arial", Font.BOLD, 20));
-		titulo.setBounds(90, 10, 250, 30);
-		realizaVenda.setBounds(70, 177, 100, 30);
-		attListaVenda.setBounds(200, 177, 100, 30);
-		listaVendasRealizadas.setBounds(20, 50, 350, 120);
+		titulo.setFont(new Font("Arial", Font.BOLD, 30));
+		listaVendasRealizadas.setFont(new Font("Arial",Font.PLAIN, 18));
+		realizaVenda.setFont(new Font("Arial",Font.PLAIN, 18));
+		attListaVenda.setFont(new Font("Arial",Font.PLAIN, 18));
+		
+		titulo.setBounds(150, 10, 300, 40);
+		realizaVenda.setBounds(130, 520, 150, 30);
+		attListaVenda.setBounds(320, 520, 150, 30);
+		listaVendasRealizadas.setBounds(20, 70, 540, 430);
 		listaVendasRealizadas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		listaVendasRealizadas.setVisibleRowCount(10);
 		janela.setLocationRelativeTo(null);
@@ -46,8 +50,9 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 		janela.add(realizaVenda);
 		janela.add(attListaVenda);
 		
-		janela.setSize(400, 250);
+		janela.setSize(600, 600);
 		janela.setVisible(true);
+		janela.setLocationRelativeTo(null);
 		realizaVenda.addActionListener(this);
 		attListaVenda.addActionListener(this);
 		listaVendasRealizadas.addListSelectionListener(this);

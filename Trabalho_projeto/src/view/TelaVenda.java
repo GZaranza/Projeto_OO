@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -61,21 +62,34 @@ public class TelaVenda implements ActionListener{
 		valorDataVenda = new JTextField(6);
 		listaCliente = new JComboBox<Usuario>(dados.getUsuarios());
 		listaCliente.setSelectedIndex(-1);
-		//listaAnuncio.setSelectedIndex();
+		listaAnuncio.setSelectedIndex(-1);
 		janela.setLocationRelativeTo(null);
 		
 		labelAnuncio.setBounds(30, 20, 150, 25);
-		listaAnuncio.setBounds(180,20,280,25);
-		labelValorVenda.setBounds(30, 50, 150, 25);
-		valorValorVenda.setBounds(180,50,280,25);
+		listaAnuncio.setBounds(180,20,360,25);
+		labelValorVenda.setBounds(30, 50, 170, 25);
+		valorValorVenda.setBounds(190,50,350,25);
 		labelComprador.setBounds(30, 80, 150, 25);
-		listaCliente.setBounds(180,80,280,25);
-		labelFormaPag.setBounds(30, 110, 150, 25);
-		valorFormaPag.setBounds(180,110,280,25);
-		labelDataVenda.setBounds(30, 140, 150, 25);
-		valorDataVenda.setBounds(180,140,280,25);
-		botSalvar.setBounds(30, 290, 170, 25);
-		botExcluir.setBounds(210,290,170,25);
+		listaCliente.setBounds(180,80,360,25);
+		labelFormaPag.setBounds(30, 110, 270, 25);
+		valorFormaPag.setBounds(290,110,250,25);
+		labelDataVenda.setBounds(30, 140, 200, 25);
+		valorDataVenda.setBounds(220,140,320,25);
+		botSalvar.setBounds(130, 520, 150, 30);
+		botExcluir.setBounds(320, 520, 150, 30);
+		
+		labelAnuncio.setFont(new Font("Arial",Font.PLAIN, 25));
+		listaAnuncio.setFont(new Font("Arial",Font.PLAIN, 15));
+		labelValorVenda.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorValorVenda.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelComprador.setFont(new Font("Arial",Font.PLAIN, 25));
+		listaCliente.setFont(new Font("Arial",Font.PLAIN, 20));
+		labelFormaPag.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorFormaPag.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelDataVenda.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorDataVenda.setFont(new Font("Arial",Font.PLAIN, 25));
+		botSalvar.setFont(new Font("Arial",Font.PLAIN, 25));
+		botExcluir.setFont(new Font("Arial",Font.PLAIN, 25));
 		
 		this.janela.add(labelAnuncio);
 		this.janela.add(listaAnuncio);
@@ -90,10 +104,14 @@ public class TelaVenda implements ActionListener{
 		this.janela.add(listaCliente);
 		this.janela.add(botSalvar);
 		this.janela.add(botExcluir);
+		this.janela.add(listaCliente);
 		
+		listaAnuncio.setBackground(Color.white);
+		listaCliente.setBackground(Color.white);
 		this.janela.setLayout(null);
-		this.janela.setSize(500, 400);
-		this.janela.setVisible(true);
+		janela.setSize(600, 600);
+		janela.setVisible(true);
+		janela.setLocationRelativeTo(null);
 
 		botSalvar.addActionListener(this);
 		
@@ -106,29 +124,49 @@ public class TelaVenda implements ActionListener{
 			valorFormaPag = new JTextField(dados.getVendas()[pos].getForma_pagamento(),200);
 			valorDataVenda = new JTextField(dados.getVendas()[pos].getDt_venda(),6);
 			listaAnuncio.setEnabled(false);
+			listaCliente = new JComboBox<Usuario>(dados.getUsuarios());
+			listaCliente.setSelectedItem(dados.getVendas()[pos].getComprador());
 			janela.setLocationRelativeTo(null);
 			
 			labelAnuncio.setBounds(30, 20, 150, 25);
-			listaAnuncio.setBounds(180,20,300,25);
-			labelValorVenda.setBounds(30, 80, 150, 25);
-			valorValorVenda.setBounds(180,80,300,25);
-			labelComprador.setBounds(30, 110, 150, 25);
-			valorComprador.setBounds(180,110,300,25);
-			labelFormaPag.setBounds(30, 140, 150, 25);
-			valorFormaPag.setBounds(180,140,300,25);
-			labelDataVenda.setBounds(30, 170, 150, 25);
-			valorDataVenda.setBounds(180,170,300,25);
-			botSalvar.setBounds(30, 290, 150, 25);
-			botExcluir.setBounds(210,290,150,25);
+			listaAnuncio.setBounds(180,20,360,25);
+			labelValorVenda.setBounds(30, 50, 170, 25);
+			valorValorVenda.setBounds(190,50,350,25);
+			labelComprador.setBounds(30, 80, 150, 25);
+			listaCliente.setBounds(180,80,360,25);
+			labelFormaPag.setBounds(30, 110, 270, 25);
+			valorFormaPag.setBounds(290,110,250,25);
+			labelDataVenda.setBounds(30, 140, 200, 25);
+			valorDataVenda.setBounds(220,140,320,25);
+			botSalvar.setBounds(130, 520, 150, 30);
+			botExcluir.setBounds(320, 520, 150, 30);
+			
+			labelAnuncio.setFont(new Font("Arial",Font.PLAIN, 25));
+			listaAnuncio.setFont(new Font("Arial",Font.PLAIN, 15));
+			labelValorVenda.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorValorVenda.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelComprador.setFont(new Font("Arial",Font.PLAIN, 25));
+			listaCliente.setFont(new Font("Arial",Font.PLAIN, 20));
+			labelFormaPag.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorFormaPag.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelDataVenda.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorDataVenda.setFont(new Font("Arial",Font.PLAIN, 25));
+			botSalvar.setFont(new Font("Arial",Font.PLAIN, 25));
+			botExcluir.setFont(new Font("Arial",Font.PLAIN, 25));
+			
+			
+			
 			janela.setLocationRelativeTo(null);
 			listaAnuncio.setEditable(false);
 			listaAnuncio.setBackground(Color.white);
+			listaCliente.setBackground(Color.white);
 			
 			this.janela.add(labelAnuncio);
 			this.janela.add(listaAnuncio);
 			this.janela.add(labelValorVenda);
 			this.janela.add(valorValorVenda);
 			this.janela.add(labelComprador);
+			this.janela.add(listaCliente);
 			this.janela.add(valorComprador);
 			this.janela.add(labelFormaPag);
 			this.janela.add(valorFormaPag);
@@ -138,8 +176,9 @@ public class TelaVenda implements ActionListener{
 			this.janela.add(botExcluir);
 			
 			this.janela.setLayout(null);
-			this.janela.setSize(500, 400);
-			this.janela.setVisible(true);
+			janela.setSize(600, 600);
+			janela.setVisible(true);
+			janela.setLocationRelativeTo(null);
 			
 			botSalvar.addActionListener(this);
 			botExcluir.addActionListener(this);

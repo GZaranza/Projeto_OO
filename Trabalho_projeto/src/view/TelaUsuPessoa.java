@@ -31,8 +31,9 @@ public class TelaUsuPessoa implements ActionListener{
 		janela.add(anuncios);
 		
 		
-		janela.setSize(500, 400);
+		janela.setSize(600, 600);
 		janela.setVisible(true);
+		janela.setLocationRelativeTo(null);
 		pessoa.addActionListener(this);
 		anuncios.addActionListener(this);
 		

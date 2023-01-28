@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -63,23 +64,42 @@ public class TelaCarro implements ActionListener{
 		janela.setLocationRelativeTo(null);
 		
 		labelMarca.setBounds(30, 20, 150, 25);
-		valorMarca.setBounds(180,20,180,25);
+		valorMarca.setBounds(200,20,180,25);
 		labelModelo.setBounds(30, 50, 150, 25);
-		valorModelo.setBounds(180,50,180,25);
+		valorModelo.setBounds(200,50,180,25);
 		labelAno.setBounds(30, 80, 150, 25);
-		valorAno.setBounds(180,80,180,25);
+		valorAno.setBounds(200,80,180,25);
 		labelCor.setBounds(30, 110, 150, 25);
-		valorCor.setBounds(180,110,180,25);
+		valorCor.setBounds(200,110,180,25);
 		labelPlaca.setBounds(30, 140, 150, 25);
-		valorPlaca.setBounds(180,140,180,25);
-		labelKm.setBounds(30, 170, 150, 25);
-		valorKm.setBounds(180,170,180,25);
+		valorPlaca.setBounds(200,140,180,25);
+		labelKm.setBounds(30, 170, 180, 25);
+		valorKm.setBounds(200,170,180,25);
 		labelDesc.setBounds(30, 200, 150, 25);
-		valorDesc.setBounds(180,200,180,25);
+		valorDesc.setBounds(200,200,300,25);
 		labelLoja.setBounds(30, 230, 150, 25);
-		listaLojas.setBounds(180,230,180,25);
-		botSalvar.setBounds(30, 290, 150, 25);
-		botExcluir.setBounds(210,290,150,25);
+		listaLojas.setBounds(200,230,180,25);
+		botSalvar.setBounds(130, 520, 150, 30);
+		botExcluir.setBounds(320, 520, 150, 30);
+		
+		labelMarca.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorMarca.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelModelo.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorModelo.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelAno.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorAno.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelCor.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorCor.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelPlaca.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorPlaca.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelKm.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorKm.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelDesc.setFont(new Font("Arial",Font.PLAIN, 25));
+		valorDesc.setFont(new Font("Arial",Font.PLAIN, 25));
+		labelLoja.setFont(new Font("Arial",Font.PLAIN, 25));
+		listaLojas.setFont(new Font("Arial",Font.PLAIN, 25));
+		botSalvar.setFont(new Font("Arial",Font.PLAIN, 25));
+		botExcluir.setFont(new Font("Arial",Font.PLAIN, 25));
 		
 		this.janela.add(labelMarca);
 		this.janela.add(valorMarca);
@@ -101,8 +121,9 @@ public class TelaCarro implements ActionListener{
 		this.janela.add(botExcluir);
 		
 		this.janela.setLayout(null);
-		this.janela.setSize(500, 400);
-		this.janela.setVisible(true);
+		janela.setSize(600, 600);
+		janela.setVisible(true);
+		janela.setLocationRelativeTo(null);
 
 		botSalvar.addActionListener(this);
 		
@@ -120,23 +141,42 @@ public class TelaCarro implements ActionListener{
 			janela.setLocationRelativeTo(null);
 			
 			labelMarca.setBounds(30, 20, 150, 25);
-			valorMarca.setBounds(180,20,180,25);
+			valorMarca.setBounds(200,20,180,25);
 			labelModelo.setBounds(30, 50, 150, 25);
-			valorModelo.setBounds(180,50,180,25);
+			valorModelo.setBounds(200,50,180,25);
 			labelAno.setBounds(30, 80, 150, 25);
-			valorAno.setBounds(180,80,180,25);
+			valorAno.setBounds(200,80,180,25);
 			labelCor.setBounds(30, 110, 150, 25);
-			valorCor.setBounds(180,110,180,25);
+			valorCor.setBounds(200,110,180,25);
 			labelPlaca.setBounds(30, 140, 150, 25);
-			valorPlaca.setBounds(180,140,180,25);
-			labelKm.setBounds(30, 170, 150, 25);
-			valorKm.setBounds(180,170,180,25);
+			valorPlaca.setBounds(200,140,180,25);
+			labelKm.setBounds(30, 170, 180, 25);
+			valorKm.setBounds(200,170,180,25);
 			labelDesc.setBounds(30, 200, 150, 25);
-			valorDesc.setBounds(180,200,180,25);
+			valorDesc.setBounds(200,200,300,25);
 			labelLoja.setBounds(30, 230, 150, 25);
-			listaLojas.setBounds(180,230,180,25);
-			botSalvar.setBounds(30, 290, 150, 25);
-			botExcluir.setBounds(210,290,150,25);
+			listaLojas.setBounds(200,230,180,25);
+			botSalvar.setBounds(130, 520, 150, 30);
+			botExcluir.setBounds(320, 520, 150, 30);
+			
+			labelMarca.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorMarca.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelModelo.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorModelo.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelAno.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorAno.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelCor.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorCor.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelPlaca.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorPlaca.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelKm.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorKm.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelDesc.setFont(new Font("Arial",Font.PLAIN, 25));
+			valorDesc.setFont(new Font("Arial",Font.PLAIN, 25));
+			labelLoja.setFont(new Font("Arial",Font.PLAIN, 25));
+			listaLojas.setFont(new Font("Arial",Font.PLAIN, 25));
+			botSalvar.setFont(new Font("Arial",Font.PLAIN, 25));
+			botExcluir.setFont(new Font("Arial",Font.PLAIN, 25));
 			
 			this.janela.add(labelMarca);
 			this.janela.add(valorMarca);
@@ -158,8 +198,9 @@ public class TelaCarro implements ActionListener{
 			this.janela.add(botExcluir);
 			
 			this.janela.setLayout(null);
-			this.janela.setSize(500, 400);
-			this.janela.setVisible(true);
+			janela.setSize(600, 600);
+			janela.setVisible(true);
+			janela.setLocationRelativeTo(null);
 			
 			botSalvar.addActionListener(this);
 			botExcluir.addActionListener(this);

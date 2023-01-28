@@ -41,19 +41,23 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 		
 		dados = d;
 		opcao=op;
-		listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
-		listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
-		janela = new JFrame("Anúncios de Carros");
-		titulo = new JLabel("Anúncios");
-		titulo.setFont(new Font("Arial", Font.BOLD, 20));
-		titulo.setBounds(200, 10, 250, 30);
 		
 		if(op==1) {//mostrar a lista de anuncios para o Usuario Loja
 			
-			anunciaCarro.setBounds(70, 177, 100, 30);
-			refresh.setBounds(200, 177, 100, 30);
-			listaAnunciosFeitos.setBounds(20, 50, 350, 120);
-			janela.setLocationRelativeTo(null);
+			listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
+			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
+			janela = new JFrame("Anúncios de Carros");
+			titulo = new JLabel("Lista de Anúncios");
+			
+			titulo.setFont(new Font("Arial", Font.BOLD, 30));
+			listaAnunciosFeitos.setFont(new Font("Arial",Font.PLAIN, 18));
+			anunciaCarro.setFont(new Font("Arial",Font.PLAIN, 18));
+			refresh.setFont(new Font("Arial",Font.PLAIN, 18));
+			
+			titulo.setBounds(150, 10, 300, 40);
+			anunciaCarro.setBounds(130, 520, 150, 30);
+			refresh.setBounds(320, 520, 150, 30);
+			listaAnunciosFeitos.setBounds(20, 70, 540, 430);
 			
 			janela.setLayout(null);
 			janela.add(titulo);
@@ -61,8 +65,9 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			janela.add(anunciaCarro);
 			janela.add(refresh);
 			
-			janela.setSize(400, 250);
+			janela.setSize(600, 600);
 			janela.setVisible(true);
+			janela.setLocationRelativeTo(null);
 			anunciaCarro.addActionListener(this);
 			refresh.addActionListener(this);
 			listaAnunciosFeitos.addListSelectionListener(this);
@@ -71,15 +76,29 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			
 		else {//mostrar a lista de anuncios para o usuario Pessoa	
 			
-			listaAnunciosFeitos.setBounds(20, 70, 450, 250);
-			labelMin.setBounds(140,50,90,10);
-			valorMin.setBounds(220,50,70,15);
-			labelMax.setBounds(300,50,90,10);
-			valorMax.setBounds(385,50,70,15);
-			labelMarca.setBounds(20, 50, 50, 10);
-			procuraMarca.setBounds(60,50,70,15);
-			refresh.setBounds(20, 330, 100, 30);
-			aplicarFiltro.setBounds(20, 10, 100, 20);
+			listaStringAnuncios = new ControleAnuncio(dados).getAnuncioString();
+			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
+			janela = new JFrame("Anúncios de Carros");
+			titulo = new JLabel("Anúncios");
+			titulo.setFont(new Font("Arial", Font.BOLD, 30));
+			labelMarca.setFont(new Font("Arial", Font.BOLD, 18));
+			labelMin.setFont(new Font("Arial", Font.BOLD, 18));
+			labelMax.setFont(new Font("Arial", Font.BOLD, 18));
+			listaAnunciosFeitos.setFont(new Font("Arial",Font.PLAIN, 18));
+			valorMin.setFont(new Font("Arial",Font.PLAIN, 18));
+			valorMax.setFont(new Font("Arial",Font.PLAIN, 18));
+			procuraMarca.setFont(new Font("Arial",Font.PLAIN, 18));
+			aplicarFiltro.setFont(new Font("Arial",Font.PLAIN, 18));
+			titulo.setBounds(240, 10, 150, 30);
+			listaAnunciosFeitos.setBounds(20, 110, 540, 400);
+			labelMin.setBounds(20,85,150,20);
+			valorMin.setBounds(145,86,80,20);
+			labelMax.setBounds(230,85,150,20);
+			valorMax.setBounds(360,86,80,20);
+			labelMarca.setBounds(20, 55, 80, 22);
+			procuraMarca.setBounds(80,57,145,20);
+			refresh.setBounds(20, 520, 100, 30);
+			aplicarFiltro.setBounds(450, 85, 100, 20);
 			janela.setLocationRelativeTo(null);
 			
 			janela.setLayout(null);
@@ -94,8 +113,9 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			janela.add(valorMax);
 			janela.add(aplicarFiltro);
 			
-			janela.setSize(600, 400);
+			janela.setSize(600, 600);
 			janela.setVisible(true);
+			janela.setLocationRelativeTo(null);
 			listaAnunciosFeitos.addListSelectionListener(this);
 			refresh.addActionListener(this);
 			aplicarFiltro.addActionListener(this);

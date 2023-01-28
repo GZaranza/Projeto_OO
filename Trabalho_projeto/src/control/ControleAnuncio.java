@@ -25,9 +25,11 @@ public class ControleAnuncio {
 	
 	public Anuncio[] listarNaoVendidos() {
 		Anuncio[] list = new Anuncio[qtdAnuncios];
+		int aux=0;
 		for(int i = 0; i< qtdAnuncios;i++) {
 			if(a[i].getCarro().getFoiVendido()==false) {
-				list[i]= a[i];
+				list[aux]= a[i];
+				aux++;
 			}
 		}
 		
@@ -45,10 +47,7 @@ public class ControleAnuncio {
 	
 	public String[] filtrarLista(String marca,int valorMin, int valorMax) {
 		String[] anunciosFiltrados = new String[qtdAnuncios];
-		System.out.println(marca);
-		System.out.println(valorMin);
-		System.out.println(valorMax);
-		
+
 		if(marca.equals("")) {
 			int aux =0;	
 			for(int i=0; i<qtdAnuncios;i++) {

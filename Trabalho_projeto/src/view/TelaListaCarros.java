@@ -25,11 +25,14 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 		
 		listaModelos = new ControleCarro(dados).getModeloCarro();
 		listaCarrosCadastrados = new JList<String>(listaModelos);
-		titulo.setFont(new Font("Arial", Font.BOLD, 20));
-		titulo.setBounds(90, 10, 250, 30);
-		cadastroCarro.setBounds(70, 177, 100, 30);
-		attListaCarro.setBounds(200, 177, 100, 30);
-		listaCarrosCadastrados.setBounds(20, 50, 350, 120);
+		titulo.setFont(new Font("Arial", Font.BOLD, 30));
+		listaCarrosCadastrados.setFont(new Font("Arial",Font.PLAIN, 18));
+		cadastroCarro.setFont(new Font("Arial",Font.PLAIN, 18));
+		attListaCarro.setFont(new Font("Arial",Font.PLAIN, 18));
+		titulo.setBounds(150, 10, 300, 40);
+		cadastroCarro.setBounds(130, 520, 150, 30);
+		attListaCarro.setBounds(320, 520, 150, 30);
+		listaCarrosCadastrados.setBounds(20, 70, 540, 430);
 		listaCarrosCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		listaCarrosCadastrados.setVisibleRowCount(10);
 		janela.setLocationRelativeTo(null);
@@ -41,8 +44,9 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 		janela.add(cadastroCarro);
 		janela.add(attListaCarro);
 		
-		janela.setSize(400, 250);
+		janela.setSize(600, 600);
 		janela.setVisible(true);
+		janela.setLocationRelativeTo(null);
 		cadastroCarro.addActionListener(this);
 		attListaCarro.addActionListener(this);
 		listaCarrosCadastrados.addListSelectionListener(this);

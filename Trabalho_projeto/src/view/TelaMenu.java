@@ -12,16 +12,19 @@ public class TelaMenu implements ActionListener{
 	
 	private static JFrame janela = new JFrame("Sistema de venda de carros");
 	private static JLabel titulo = new JLabel("Menu Principal");
-	private static JButton loja = new JButton("Lojas");
-	private static JButton usuario = new JButton("Usuarios");
+	private static JButton loja = new JButton("Login loja");
+	private static JButton usuario = new JButton("Ver anúncios");
 	public static ControleDados dados = new ControleDados();
 	
 	public TelaMenu() {
-		titulo.setFont(new Font("Arial", Font.BOLD, 20));
-		titulo.setBounds(120, 10, 150, 30);
-		loja.setBounds(140, 100, 100, 30);
-		usuario.setBounds(140, 150, 100, 30);
-		janela.setLocationRelativeTo(null);
+		titulo.setFont(new Font("Arial", Font.BOLD, 40));
+		loja.setFont(new Font("Arial", Font.BOLD, 30));
+		usuario.setFont(new Font("Arial", Font.BOLD, 30));
+		
+		titulo.setBounds(155, 10, 290, 40);
+		loja.setBounds(175, 200, 250, 40);
+		usuario.setBounds(175, 100, 250, 40);
+		//janela.setLocationRelativeTo(null);
 		
 		janela.setLayout(null);
 		
@@ -29,10 +32,10 @@ public class TelaMenu implements ActionListener{
 		janela.add(loja);
 		janela.add(usuario);
 		
-		
-		janela.setSize(400, 250);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		janela.setSize(600, 600);
 		janela.setVisible(true);
+		janela.setLocationRelativeTo(null);
 	}
 	
 	public static void main(String[] args) {
@@ -55,7 +58,7 @@ public class TelaMenu implements ActionListener{
 		}
 		
 		if(src == usuario) {
-			new TelaUsuPessoa().mostrarDados(dados);;
+			new TelaListaAnuncios().mostrarDados(dados,2);
 		}
 	}
 
