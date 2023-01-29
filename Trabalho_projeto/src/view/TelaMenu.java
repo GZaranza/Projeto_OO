@@ -31,7 +31,7 @@ public class TelaMenu implements ActionListener{
 		titulo.setBounds(155, 10, 290, 40);
 		loja.setBounds(175, 200, 250, 40);
 		usuario.setBounds(175, 100, 250, 40);
-		//janela.setLocationRelativeTo(null);
+
 		
 		janela.setLayout(null);
 		
