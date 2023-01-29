@@ -12,9 +12,17 @@ import model.Endereco;
 import model.Loja;
 import model.Usuario;
 import model.Venda;
-
+/**
+ * Classe TesteListaNaoVendidos implementa o teste unitário (JUnit 5) do método listaNaoVendidos
+ * @author Gabriel Zaranza
+ *
+ */
 class TesteListaNaoVendidos {
-
+	/*
+	 * Testando o método listarNaoVendidos que é usado para gerar um Array de Carros 
+	 * que possuem o atributo foiVendido() igual a False, ou seja, carros que ainda 
+	 * não foram vendidos
+	 */
 	@Test
 	void test() {
 		int numCarros = 4;

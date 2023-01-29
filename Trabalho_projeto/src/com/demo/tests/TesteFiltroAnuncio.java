@@ -7,7 +7,11 @@ import org.junit.jupiter.api.Test;
 import control.ControleAnuncio;
 import control.ControleDados;
 import model.*;
-
+/**
+ * Classe TesteFiltroAnuncio implementa o teste unitário (JUnit 5) do método filtrarAnuncios
+ * @author Gabriel Zaranza
+ *
+ */
 class TesteFiltroAnuncio {
 
 	/*Testando o metodo filtrarLista que é usado na lista de anuncios
@@ -44,7 +48,7 @@ class TesteFiltroAnuncio {
 		anuncios[2].anunciar(carros[2]);
 		anuncios[3].anunciar(carros[3]);
 		
-		//Setando os filtros que serão usados no teste
+		//Setando os filtros que serão aplicados na lista
 		String marcaFiltro="Volkswagen";
 		int valorMinFiltro=10000;
 		int valorMaxFiltro=35000;

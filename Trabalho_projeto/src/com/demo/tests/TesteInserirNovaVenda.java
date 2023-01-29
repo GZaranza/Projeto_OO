@@ -11,9 +11,16 @@ import model.Endereco;
 import model.Loja;
 import model.Usuario;
 import model.Venda;
-
+/**
+ * Classe TesteInserirNovaVenda implementa o teste unitário (JUnit 5) do método inserirEditarVenda
+ * @author Gabriel Zaranza
+ *
+ */
 class TesteInserirNovaVenda {
-
+	/*
+	 * Testando o método inserirEditarVenda que é usado para gerar uma instância nova da Classe Venda
+	 * ou editar uma Venda já criada
+	 */
 	@Test
 	void test() {
 		int numCarros = 4;
@@ -67,7 +74,7 @@ class TesteInserirNovaVenda {
 		dadosVenda[2] = "financiamento";//forma de pagamento
 		dadosVenda[3] = "25/01/2023";//data da venda
 		
-		//Usando o metedo inserirEditarVenda para criar uma nova venda
+		//Usando o método inserirEditarVenda para criar uma nova venda
 		dados.inserirEditarVenda(dadosVenda, anuncioVenda, usuarioComprador);
 		
 		//Venda esperada
