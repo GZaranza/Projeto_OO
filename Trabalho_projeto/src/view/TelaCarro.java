@@ -252,11 +252,11 @@ public class TelaCarro implements ActionListener{
 				novoDado[5] = valorPlaca.getText();
 				novoDado[6] = valorDesc.getText();
 				novoDado[7] = valorKm.getText();
-				//Armazenando a loja que foi selecionada para recever o carro no JComboBox lojaEscolhida
+				//Armazenando a loja que foi selecionada para receber o carro no JComboBox lojaEscolhida
 				lojaEscolhida = (Loja) listaLojas.getSelectedItem();
-				//Chamando o metodo que inser ou edita um carro da Classe ControleDados
+				//Chamando o metodo que insere ou edita um carro da Classe ControleDados
 				dados.inserirEditarCarro(novoDado,lojaEscolhida);
-				//Fecha a TelaCarro para voltar a TelaListVendas
+				//Fecha a TelaCarro para voltar a TelaListaVendas
 				janela.dispose();
 		}	
 		

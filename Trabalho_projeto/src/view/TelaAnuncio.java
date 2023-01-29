@@ -16,7 +16,11 @@ import control.ControleDados;
 import control.ControleLoja;
 import model.Carro;
 import model.Loja;
-
+/**
+ * Classe TelaAnuncio cria a interface gráfica da tela que mostra as informações de um anúncio
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaAnuncio implements ActionListener {
 	private JFrame janela = new JFrame("Anuncios");
 	private JLabel labelCarro = new JLabel("Carro: ");
@@ -50,6 +54,13 @@ public class TelaAnuncio implements ActionListener {
 	private JLabel labelDesc = new JLabel("Descrição: ");
 	private JTextField valorDesc;
 	
+	/**
+	 * Construtor da Classe TelaVenda 
+	 * @param op o tipo da TelaAnuncio que será gerado
+	 * @param d a Classe ControleDados que controla os dados do programa
+	 * @param p a Classe TelaListaAnuncios que precede a TelaCarro
+	 * @param pos a posição que o anuncio, que será mostrado, opcupa na lista de anuncios
+	 */
 	public void mostrarDados(int op, ControleDados d,TelaListaAnuncios p, int pos) {
 			
 			opcao = op;
@@ -59,7 +70,8 @@ public class TelaAnuncio implements ActionListener {
 			listaModelosCarros = new ControleCarro(dados).listarCarro();
 			listaCarros = new JComboBox<Carro>();
 			
-			if(op==1) {//opção da loja de anunciar
+			//Parâmetros para gerar a TelaAnuncio para o login loja de um anuncio novo
+			if(op==1) {
 			valorValor = new JTextField(200);
 			valorData = new JTextField(10);
 			listaCarros = new JComboBox<Carro>(new ControleCarro(dados).listarNaoVendidos());
@@ -102,6 +114,8 @@ public class TelaAnuncio implements ActionListener {
 			botSalvar.addActionListener(this);
 			botExcluir.addActionListener(this);
 			}
+			
+			//Parâmetros para gerar a TelaAnuncio para o login loja de um anuncio ja criado
 			else if(op==2) {
 			
 				valorValor = new JTextField(String.valueOf(dados.getAnuncios()[pos].getValor()),10);
@@ -145,6 +159,8 @@ public class TelaAnuncio implements ActionListener {
 				botSalvar.addActionListener(this);
 				botExcluir.addActionListener(this);
 			}
+			
+			//Parâmetros para gerar a TelaAnuncio para o cliente ao clicar na lista de anuncios
 			else if (op==3) {
 				valorMarca = new JTextField(dados.getAnuncios()[pos].getCarro().getMarca(),200);
 				valorModelo = new JTextField(dados.getAnuncios()[pos].getCarro().getModelo(),200);
@@ -255,28 +271,44 @@ public class TelaAnuncio implements ActionListener {
 			
 		}
 	
+	//Método que reconhece alguma ação realizada na interface gráfica
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		//Armazena o objeto que sofreu ação, nesse caso o botão "Salvar" ou "Excluir"
 		Object src = e.getSource();
+		
+		//Caso a ação foi apertar o botão "Salvar"
 		if(src == botSalvar) {
-			
+				
+				//Caso seja um anuncio novo
 				if(opcao == 1) {
+					//A posição do novo anuncio será a quantidade de anuncios cadastrados
 					novoDado[0] = Integer.toString(dados.getQtdAnuncios());	
 				}
 				
+				//Caso seja a edição de um anuncio ja cadastrado
 				else {
+					//Armazana a posição do anuncio no Array de Anuncio
 					novoDado[0]=Integer.toString(posicao);
 				}
+				
+				//Armazena as informações preenchidas do anuncio
 				novoDado[1] = valorData.getText();
 				novoDado[2] = valorValor.getText();
+				//Armazenando o carro que foi selecionada para receber o anuncio no JComboBox carroEscolhido
 				carroEscolhido = (Carro) listaCarros.getSelectedItem();
+				//Chamando o metodo que insere ou edita um anuncio da Classe ControleDados
 				dados.inserirEditarAnuncio(novoDado,carroEscolhido);
+				//Fecha a TelaAnuncio para voltar a TelaListaAnuncios
 				janela.dispose();
 		}	
-				
+			
+		//Caso a ação foi apertar o botão "Excluir"
 		if(src== botExcluir) {
+			//Chamando o método que apaga um anuncio e passando como parâmentro a posição do anuncio em questão
 			dados.apagarAnuncio(posicao);
+			//Fecha a TelaAnuncio para voltar a TelaListaAnuncios
 			janela.dispose();
 		}
 	}

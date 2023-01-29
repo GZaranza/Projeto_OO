@@ -35,11 +35,18 @@ public class Dados {
 		carros[2] = new Carro("Volkswagen", "Amarok", "2019/2020", "Prata", "ABC9876", "4 PORTAS ",
 				62679);
 		qtdCarros++;
-		carros[3] = new Carro("Hyundai", "Hb20", "2018/2018", "Vermelho", "CVB6549", "2 portas ",
-				21587);
-		
+		carros[3] = new Carro("Fiat", "Uno", "2017/2017", "Branco", "PQD9875", "2 portas ",
+				38975);
 		qtdCarros++;
-		
+		carros[4] = new Carro("Fiat", "Strada", "2010/2011", "Vermelho", "JQT6843", "2 portas ",
+				98645);
+		qtdCarros++;
+		carros[5] = new Carro("Hyundai", "Hb20", "2018/2018", "Vermelho", "CVB6549", "2 portas ",
+				36544);
+		qtdCarros++;
+		carros[6] = new Carro("Chevrolet", "Onix", "2018/2018", "Prata", "GMA1976", "2 portas ",
+				29874);
+		qtdCarros++;
 
 		lojas[0] = new Loja("Julia CAR", "julia@hotmail.com","61983802356", enderecos[0],"123456789","987654321");
 		qtdLojas++;
@@ -50,7 +57,11 @@ public class Dados {
 		carros[0].cadastrarCarro(lojas[1]);
 		carros[1].cadastrarCarro(lojas[1]);
 		carros[2].cadastrarCarro(lojas[0]);
-		carros[3].cadastrarCarro(lojas[0]);
+		carros[3].cadastrarCarro(lojas[1]);
+		carros[4].cadastrarCarro(lojas[0]);
+		carros[5].cadastrarCarro(lojas[1]);
+		carros[6].cadastrarCarro(lojas[0]);
+		
 		
 		usuarios[0] = new Usuario("Gabriel Zaranza", "gabriel@hotmail.com", "05295796183", "02/01/2001", "984596321", enderecos[0]);
 		qtdUsuarios++;
@@ -67,19 +78,37 @@ public class Dados {
 		anuncios[2] = new Anuncio( 60000, "08/12/2022");
 		qtdAnuncios++;
 		
-		anuncios[3] = new Anuncio( 15000, "08/12/2022");
+		anuncios[3] = new Anuncio( 27000, "12/12/2022");
 		qtdAnuncios++;
+		
+		anuncios[4] = new Anuncio( 45000, "17/12/2022");
+		qtdAnuncios++;
+		
+		anuncios[5] = new Anuncio( 12000, "29/11/2022");
+		qtdAnuncios++;
+		
+		anuncios[6] = new Anuncio( 56000, "03/01/2023");
+		qtdAnuncios++;
+		
+
 		
 		
 		anuncios[0].anunciar(carros[0]);
 		anuncios[1].anunciar(carros[1]);
 		anuncios[2].anunciar(carros[2]);
 		anuncios[3].anunciar(carros[3]);
+		anuncios[4].anunciar(carros[4]);
+		anuncios[5].anunciar(carros[5]);
+		anuncios[6].anunciar(carros[6]);
 		
 		vendas[0]= new Venda(anuncios[0],usuarios[0], 20000,"financiamento","09/12/2022");
 		qtdVendas++;
+		vendas[1]= new Venda(anuncios[5],usuarios[1], 11000,"financiamento","30/12/2022");
+		qtdVendas++;
 		vendas[0].vender(anuncios[0]);
 		vendas[0].getAnuncio_venda().getCarro().setFoivendido(true);
+		vendas[1].vender(anuncios[1]);
+		vendas[1].getAnuncio_venda().getCarro().setFoivendido(true);
 	}
 	
 	public Carro[] getCarros() {
