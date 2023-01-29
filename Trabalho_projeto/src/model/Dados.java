@@ -91,8 +91,6 @@ public class Dados {
 		qtdAnuncios++;
 		
 
-		
-		
 		anuncios[0].anunciar(carros[0]);
 		anuncios[1].anunciar(carros[1]);
 		anuncios[2].anunciar(carros[2]);
