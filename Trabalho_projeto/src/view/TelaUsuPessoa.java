@@ -9,14 +9,21 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import control.ControleDados;
-
+/**
+ * Classe TelaUsuPessoa cria a interface gráfica do menu de usuário (clientes)
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaUsuPessoa implements ActionListener{
 	private JFrame janela = new JFrame("Clientes");
 	private JLabel titulo = new JLabel("Clientes");
 	private static JButton pessoa = new JButton("Criar conta");
 	private static JButton anuncios = new JButton("Anuncios");
 	public static ControleDados dados;
-	
+	/**
+	 * Construtor da Classe TelaUsuPessoa
+	 * @param d a Classe ControleDados que controla os dados do programa 
+	 */
 	public void mostrarDados(ControleDados d) {
 		dados = d;
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -40,16 +47,16 @@ public class TelaUsuPessoa implements ActionListener{
 	}
 
 	
-	
+	//Método que reconhece alguma ação realizada na interface gráfica
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object src = e.getSource();
-		
-		if(src == pessoa) {
+		//Caso a ação foi apertar o botão "Criar conta"
+		/*if(src == pessoa) {
 			//new TelaPessoa();
-		}
-		
+		}*/
+		//Caso a ação foi apertar o botão "Anuncios"
 		if(src == anuncios) {
 			new TelaListaAnuncios().mostrarDados(dados,2);
 		}

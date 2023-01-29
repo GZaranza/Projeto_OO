@@ -9,7 +9,11 @@ import control.*;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.*;
-
+/**
+ * Classe TelaUsuLoja cria a interface gráfica do menu das Lojas
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaUsuLoja implements ActionListener{
 		
 	private JFrame janela = new JFrame("Loja");
@@ -21,7 +25,10 @@ public class TelaUsuLoja implements ActionListener{
 	public static ControleDados dados = new ControleDados();
 	
 	
-	
+	/**
+	 * Contrutor da Classe TeleUsuLoja
+	 * @param d a Classe ControleDados que controla os dados do programa
+	 */
 	public void mostrarDados(ControleDados d) {
 		dados =d;
 		titulo.setFont(new Font("Arial", Font.BOLD, 40));
@@ -57,27 +64,35 @@ public class TelaUsuLoja implements ActionListener{
 		
 	}
 	
-
+	//Método que reconhece alguma ação realizada na interface gráfica
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		//Armazena o objeto que sofreu ação, nesse caso o botão "Carros", "Anuncios", "Vendas" ou "Lojas"
 		Object src = e.getSource();
 				
-				if(src == carros) {
-					new TelaListaCarros().mostrarDados(dados);
-				}
-				
-				if(src == lojas) {
-					new TelaLojas().mostrarDados(dados);
-				}
-				
-				if(src == anuncios) {
-					new TelaListaAnuncios().mostrarDados(dados,1);//mudar para 1
-				}
-				
-				if(src == vendas) {
-					new TelaListaVendas().mostrarDados(dados);
-				}
+		//Caso a ação foi apertar o botão "Carros"
+		if(src == carros) {
+			//Chama o contrutor da Classe TelaListaCarros
+			new TelaListaCarros().mostrarDados(dados);
+		}
+		//Caso a ação foi apertar o botão "Lojas"		
+		if(src == lojas) {
+			//Chama o contrutor da Classe TelaLojas
+			new TelaLojas().mostrarDados(dados);
+		}
+		
+		//Caso a ação foi apertar o botão "Anuncios"		
+		if(src == anuncios) {
+			//Chama o contrutor da Classe TelaListaAnuncios
+			new TelaListaAnuncios().mostrarDados(dados,1);
+		}
+		
+		//Caso a ação foi apertar o botão "Vendas"		
+		if(src == vendas) {
+			//Chama o contrutor da Classe TelaListaVendas
+			new TelaListaVendas().mostrarDados(dados);
+		}
 	}
 
 }

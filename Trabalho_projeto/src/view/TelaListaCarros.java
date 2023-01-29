@@ -9,7 +9,11 @@ import control.ControleDados;
 
 import java.awt.Font;
 import java.awt.event.*;
-
+/**
+ * Classe TelaListaCarros cria a interface gráfica da tela que mostra a lista de carros cadastrados no programa
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaListaCarros implements ActionListener, ListSelectionListener {
 
 	private JFrame janela = new JFrame("Carros");
@@ -19,7 +23,10 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 	private JList<String> listaCarrosCadastrados = new JList<String>();
 	private static ControleDados dados;
 	private String[] listaModelos = new String[50];
-	
+	/**
+	 * Contrutor da classe TelaListaCarros
+	 * @param d  a Classe ControleDados que controla os dados do programa
+	 */
 	public void mostrarDados(ControleDados d) {
 		dados =d;
 		
@@ -53,26 +60,39 @@ public class TelaListaCarros implements ActionListener, ListSelectionListener {
 	}
 	
 	
-
+	//Método que reconhece alguma ação realizada na interface gráfica
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		//Armazena o objeto que sofreu ação, nesse caso o botão "Cadastrar" ou "Atualizar"
 		Object src = e.getSource();
+		
+		//Caso a ação foi apertar o botão "Cadastrar"
 		if(src == cadastroCarro) {
-			new TelaCarro().inserirEditarCarro(1, dados, this, 0);
+			//Chama o construtor da TelaCarro e passa como parâmetro a TelaCarro de um novo carro
+			new TelaCarro().mostrarDados(1, dados, this, 0);
 		}
+		
+		//Caso a ação foi apertar o botão "Atualizar"
 		if(src == attListaCarro) {
+			//Atualiza o JList listaCarrosCadastrados com os novos dados após a criação/modificação/exclusão de um carro
 			listaCarrosCadastrados.setListData(new ControleCarro(dados).listarCarro());
+			//Atualiza visualmente a interface gráfica
 			listaCarrosCadastrados.updateUI();
 		}
 	}
 
+	//Método que reconhece quando um item da JList é selecionado
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub
-		Object src = e.getSource();		
+		//Armazena o objeto que sofreu a ação, nesse caso um item da JList
+		Object src = e.getSource();	
+		
+		//Entra nessa condição quando um item da lista e selicionada e a lista é a listaCarrosCadastrados
 		if(e.getValueIsAdjusting() && src == listaCarrosCadastrados) {
-			new TelaCarro().inserirEditarCarro(2, dados, this, listaCarrosCadastrados.getSelectedIndex());
+			//Chama o construtor da TelaCarro e passa como opção a TelaCarro de um carro ja cadastrado e posição desse carro no Array de Carro
+			new TelaCarro().mostrarDados(2, dados, this, listaCarrosCadastrados.getSelectedIndex());
 		}
 	}
 }

@@ -12,7 +12,11 @@ import control.ControleAnuncio;
 import control.ControleCarro;
 import control.ControleDados;
 import control.ControleLoja;
-
+/**
+ * Classe TelaListaAnuncios cria a interface gráfica da tela que mostra a lista de anúncios feitos
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 
 	
@@ -36,13 +40,18 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 	private int maxFiltro;
 	
 	
-	
+	/**
+	 * Contrutor da Classe TelaListaAnuncios
+	 * @param d a Classe ControleDados que controla os dados do programa
+	 * @param op o tipo de TelaListaAnuncio que será gerada
+	 */
 	public void mostrarDados(ControleDados d,int op) {
 		
 		dados = d;
 		opcao=op;
 		
-		if(op==1) {//mostrar a lista de anuncios para o Usuario Loja
+		//Parâmetros para gerar a TelaListaAnuncio para as lojas
+		if(op==1) {
 			
 			listaStringAnuncios = new ControleAnuncio(dados).listarAnuncios();
 			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
@@ -73,8 +82,9 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 			listaAnunciosFeitos.addListSelectionListener(this);
 			
 		}
-			
-		else {//mostrar a lista de anuncios para o usuario Pessoa	
+		
+		//Parâmetros para gerar a TelaListaAnuncio para os clientes
+		else {	
 			
 			listaStringAnuncios = new ControleAnuncio(dados).listarAnuncios();
 			listaAnunciosFeitos = new JList<String>(listaStringAnuncios);
@@ -124,65 +134,95 @@ public class TelaListaAnuncios implements ActionListener, ListSelectionListener{
 		}	
 	}
 	
-	
+	//Método que reconhece quando um item da JList é selecionado
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub
+		//Armazena o objeto que sofreu a ação, nesse caso um item da JList
 		Object src = e.getSource();
-		if(opcao==1) {		
+		
+		//Caso seja a TelaListaAnuncios das lojas
+		if(opcao==1) {	
+			//Entra nessa condição quando um item da lista e selicionada e a lista é a listaAnunciosFeitos
 			if(e.getValueIsAdjusting() && src == listaAnunciosFeitos) {
+				//Chama o construtor da TelaAnuncio e passa como opção a TelaAnuncio de um carro ja cadastrado e posição desse carro no Array de Carro
 				new TelaAnuncio().mostrarDados(2, dados, this, listaAnunciosFeitos.getSelectedIndex());
 			}
 		}
 		
+		//Caso seja a TelaListaAnuncios dos clientes
 		else if(opcao==2) {
+			//Entra nessa condição quando um item da lista e selicionada e a lista é a listaAnunciosFeitos
 			if(e.getValueIsAdjusting() && src == listaAnunciosFeitos) {
+				//Chama o construtor da TelaAnuncio e passa como opção a TelaAnuncio de um carro ja cadastrado e posição desse carro no Array de Carro
 				new TelaAnuncio().mostrarDados(3, dados, this, listaAnunciosFeitos.getSelectedIndex());
 			}
 		}
 		
 	}
 
+	//Método que reconhece alguma ação realizada na interface gráfica
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		//Armazena o objeto que sofreu ação, nesse caso o botão "Anunciar" ou "Atualizar"
 		Object src = e.getSource();
+		
+		//Caso seja a TelaListaAnuncios das lojas
 		if(opcao==1) {
+			
+			//Caso a ação foi apertar o botão "Anunciar"
 			if(src == anunciaCarro) {
+				//Chama o construtor da TelaAnuncio e passa como opção a TelaAnuncio de um anuncio novo
 				new TelaAnuncio().mostrarDados(1, dados, this, 0);
 			}
 			
-		
+			//Caso a ação foi apertar o botão "Atualizar"
 			if(src== refresh) {
+				//Atualiza o JList listaAnunciosFeitos com os novos dados após a criação/modificação/exclusão de um anuncio
 				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).listarAnuncios());
+				//Atualiza visualmente a interface gráfica
 				listaAnunciosFeitos.updateUI();
 			}
 		}
+		
+		//Caso seja a TelaListaAnuncios dos clientes
 		if(opcao==2) {
+			//Caso a ação foi apertar o botão "Atualizar"
 			if(src== refresh) {
+				//Atualiza o JList listaAnunciosFeitos com os novos dados após a criação/modificação/exclusão de um anuncio
 				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).listarAnuncios());
+				//Atualiza visualmente a interface gráfica
 				listaAnunciosFeitos.updateUI();
 			}
 			
+			//Caso a ação foi apertar o botão "Filtrar"
 			if(src == aplicarFiltro) {
+				
+				//Armazena a String da marca que o cliente quer filtrar a lista de anuncios
 				marcaFiltro = procuraMarca.getText();
 				
+				//Caso o cliente não coloque um valor minimo, o filtro considerará o valor como 0
 				if(valorMin.getText().equals("")) {
 					minFiltro = 0;
 				}
+				//Caso coloque o valor minimo, armazena o valor colocado pelo cliente
 				else {
 					minFiltro = Integer.parseInt(valorMin.getText());
 				}
 				
+				//Caso o cliente não coloque um valor maximo, o filtro considerará o valor como 100000000
 				if(valorMax.getText().equals("")) {
 					maxFiltro = 100000000;
 				}
+				//Caso o cliente coloque o valor maximo, armazena o valor colocado pelo cliente
 				else {
 					maxFiltro = Integer.parseInt(valorMax.getText());
 				}
 				
+				//Atualiza a JList listaAnunciosFeitos com o Array de String dos anuncios filtrados pelo métoto filtrarAnuncios
 				listaAnunciosFeitos.setListData(new ControleAnuncio(dados).filtrarAnuncios(marcaFiltro,minFiltro,maxFiltro));
+				//Atualiza visualmente a interface gráfica
 				listaAnunciosFeitos.updateUI();
 			}
 		}

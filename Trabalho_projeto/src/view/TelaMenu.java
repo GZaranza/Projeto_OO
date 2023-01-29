@@ -1,13 +1,18 @@
 package view;
 
 import java.awt.Font;
+
 import java.awt.event.*;
 
 import javax.swing.*;
 
 
-import control.*
-;
+import control.*;
+/**
+ * Classe TelaMenu cria a interface gráfica do menu principal do programa
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaMenu implements ActionListener{
 	
 	private static JFrame janela = new JFrame("Sistema de venda de carros");
@@ -15,7 +20,9 @@ public class TelaMenu implements ActionListener{
 	private static JButton loja = new JButton("Login loja");
 	private static JButton usuario = new JButton("Ver anúncios");
 	public static ControleDados dados = new ControleDados();
-	
+	/**
+	 * Contrutor da Classe TelaMenu
+	 */
 	public TelaMenu() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 40));
 		loja.setFont(new Font("Arial", Font.BOLD, 30));
@@ -37,7 +44,10 @@ public class TelaMenu implements ActionListener{
 		janela.setVisible(true);
 		janela.setLocationRelativeTo(null);
 	}
-	
+	/**
+	 * Método Main do pacote View
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TelaMenu menu = new TelaMenu();
@@ -46,18 +56,23 @@ public class TelaMenu implements ActionListener{
 	}
 
 
-
+	//Método que reconhece alguma ação realizada na interface gráfica
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		//Armazena o objeto que sofreu ação, nesse caso o botão "Login loja" ou "Ver Anuncios"
 		Object src = e.getSource();
 		
+		//Caso a ação foi apertar o botão "Login loja"
 		if(src == loja) {
+			//Chama o contrutor da Classe TelaUsuLoja
 			new TelaUsuLoja().mostrarDados(dados);;
 			
 		}
 		
+		//Caso a ação foi apertar o botão "Ver Anuncios"
 		if(src == usuario) {
+			//Chama o contrutor da Classe TelaListaAnuncios
 			new TelaListaAnuncios().mostrarDados(dados,2);
 		}
 	}

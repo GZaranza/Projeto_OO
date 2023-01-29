@@ -18,7 +18,11 @@ import control.ControleUsuario;
 import model.Anuncio;
 import model.Loja;
 import model.Usuario;
-
+/**
+ * Classe TelaVenda cria a interface gráfica da tela que mostra as informações de uma venda selecionada na lista da TelaListaV
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaVenda implements ActionListener{
 
 	private JFrame janela = new JFrame("Venda");
@@ -44,7 +48,13 @@ public class TelaVenda implements ActionListener{
 	private Anuncio anuncioEscolhido ;
 	private Usuario compradorEscolhido;
 	
-	
+	/**
+	 * Construtor da Classe TelaVenda
+	 * @param op o tipo da TelaVenda que será gerada
+	 * @param d a Classe ControleDados que controla os dados do programa
+	 * @param p a Classe TelaListaVendas que precede a TelaVenda
+	 * @param pos a posição que a venda, que será mostrada, ocupa na lista de vendas 
+	 */
 	public void mostrarDados(int op, ControleDados d,TelaListaVendas p, int pos) {
 	
 		opcao = op;
@@ -54,7 +64,8 @@ public class TelaVenda implements ActionListener{
 		listaNomeCliente = new ControleUsuario(dados).listarUsuario();
 		listaCliente = new JComboBox<Usuario>();
 		
-		if(op==1) {//fazer uma nova venda
+		//Parâmetros para gerar a TelaVenda de uma nova venda
+		if(op==1) {
 		listaAnuncio = new JComboBox<Anuncio>(new ControleAnuncio(dados).listarNaoVendidos());
 		valorValorVenda = new JTextField(4);
 		valorComprador = new JTextField(200);
@@ -116,6 +127,8 @@ public class TelaVenda implements ActionListener{
 		botSalvar.addActionListener(this);
 		
 		}
+		
+		//Parâmetros para gerar a TelaVenda de uma venda já criada
 		else if(op==2) {
 			listaAnuncio = new JComboBox<Anuncio>(dados.getAnuncios());
 			listaAnuncio.setSelectedItem(dados.getAnuncios()[pos].getCarro());
@@ -186,31 +199,47 @@ public class TelaVenda implements ActionListener{
 		
 	}
 
-
+	//Método que reconhece alguma ação realizada na interface gráfica
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		//Armazena o objeto que sofreu ação, nesse caso o botão "Salvar" ou "Excluir"
 		Object src = e.getSource();
+		
+		//Caso a ação foi apertar o botão "Salvar"
 		if(src == botSalvar) {
 			
+			//Caso seja uma venda nova
 			if(opcao == 1) {
+				//A posição da nova venda será a quantidade de vendas feitas
 				novoDado[0] = Integer.toString(dados.getQtdVendas());	
 			}
-				
+			
+			//Caso seja a edição de uma venda ja feita
 			else {
+				//Armazena a posição que essa venda ocupa no Array de Venda
 				novoDado[0]=Integer.toString(posicao);
 			}
+			
+			//Armazenandos as informações da venda
 			novoDado[1] = valorValorVenda.getText();
 			novoDado[2] = valorFormaPag.getText();
 			novoDado[3] = valorDataVenda.getText();
+			//Armazenando o anúncio que foi selecionado para ser vendido no JComboBox anuncioEscolhido
 			anuncioEscolhido = (Anuncio) listaAnuncio.getSelectedItem();
+			//Armazenando o usuário que foi selecionado para ser o comprador no JComboBox compradorEscolhido
 			compradorEscolhido = (Usuario) listaCliente.getSelectedItem();
+			//Chamando o método que insere ou edita uma venda da Classe ControleDados
 			dados.inserirEditarVenda(novoDado,anuncioEscolhido,compradorEscolhido);
+			//Fecha a TelaVenda para voltar a TelaListaVendas
 			janela.dispose();
 		}	
-				
+		
+		//Caso a ação foi apertar o botão "Excluir"
 		if(src== botExcluir) {
+			//Chamando o método que apaga uma venda e passando como parâmentro a posição da venda em questão
 			dados.apagarVenda(posicao);
+			//Fecha a TelaVenda para voltar a TelaListaVendas
 			janela.dispose();
 		}
 	}

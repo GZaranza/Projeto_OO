@@ -15,7 +15,11 @@ import javax.swing.event.ListSelectionListener;
 import control.ControleCarro;
 import control.ControleDados;
 import control.ControleVenda;
-
+/**
+ * Classe TelaListaVenda cria a interface gráfica da tela que mostra a lista de vendas realizadas
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaListaVendas implements ActionListener, ListSelectionListener{
 	private JFrame janela = new JFrame("Vendas");
 	private JLabel titulo = new JLabel("Vendas realizadas");
@@ -25,6 +29,10 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 	private static ControleDados dados;
 	private String[] listaVendas = new String[50];
 	
+	/**
+	 * Contrutor da Classe TelaListaVenda
+	 * @param d a Classe ControleDados que controla os dados do programa 
+	 */
 	public void mostrarDados(ControleDados d) {
 		dados =d;
 		
@@ -59,25 +67,37 @@ public class TelaListaVendas implements ActionListener, ListSelectionListener{
 	}
 	
 	
-
+	//Método que reconhece alguma ação realizada na interface gráfica
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		//Armazena o objeto que sofreu ação, nesse caso o botão "Vender" ou "Atualizar"
 		Object src = e.getSource();
+
+		//Caso a ação foi apertar o botão "Vender"
 		if(src == realizaVenda) {
+			//Chama o contrutor da TelaVenda e passa como opção a TelaVenda de uma venda nova
 			new TelaVenda().mostrarDados(1, dados, this, 0);
 		}
+		
+		//Caso a ação foi apertar o botão "Atualizar"
 		if(src == attListaVenda) {
+			//Atualiza o JList listaVendasRealizadas com os novos dados após a criação/modificação/exclusão de uma venda
 			listaVendasRealizadas.setListData(new ControleVenda(dados).listarVendas());
+			//Atualiza visualmente a interface gráfica
 			listaVendasRealizadas.updateUI();
 		}
 	}
 
+	//Método que reconhece quando um item da JList é selecionado
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub
+		//Armazena o objeto que sofreu a ação, nesse caso um item da JList
 		Object src = e.getSource();		
+		//Entra nessa condição quando um item da lista e selicionada e a lista é a listaVendasRealizadas
 		if(e.getValueIsAdjusting() && src == listaVendasRealizadas) {
+			//Chama o construtor da Tela venda e passa como opção a TelaVenda de uma venda ja feita e quando foi a venda selecionada
 			new TelaVenda().mostrarDados(2, dados, this, listaVendasRealizadas.getSelectedIndex());
 		}
 	}

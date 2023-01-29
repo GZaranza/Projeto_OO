@@ -12,7 +12,11 @@ import javax.swing.JTextField;
 
 import control.*;
 import model.Loja;
-
+/**
+ * Classe TelaCarro cria a interface gráfica da tela que mostra as informações de um carro
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaCarro implements ActionListener{
 	
 	private JFrame janela = new JFrame("Carros");
@@ -41,7 +45,15 @@ public class TelaCarro implements ActionListener{
 	private String[] novoDado = new String [9];
 	private Loja lojaEscolhida ;
 	
-	public void inserirEditarCarro(int op, ControleDados d,TelaListaCarros p, int pos) {
+	
+	/**
+	 * Contrutor da Classe TelaCarro
+	 * @param op o tipo da TelaCarro que será gerada
+	 * @param d a Classe ControleDados que controla os dados do programa
+	 * @param p a Classe TelaListaCarros que precede a TelaCarro
+	 * @param pos a posição que o carro, que será mostrado, opcupa na lista de carros
+	 */
+	public void mostrarDados(int op, ControleDados d,TelaListaCarros p, int pos) {
 		
 		opcao = op;
 		posicao=pos;
@@ -50,14 +62,14 @@ public class TelaCarro implements ActionListener{
 		listaNomeLojas = new ControleLoja(dados).listarLoja();
 		listaLojas = new JComboBox<Loja>();
 		
-		if(op==1) {//opção da loja de cadastrar
+		//Parâmetros para gerar a TelaCarro de um novo carro
+		if(op==1) {
 		valorMarca = new JTextField(200);
 		valorModelo = new JTextField(200);
 		valorAno = new JTextField(4);
 		valorCor = new JTextField(200);
 		valorPlaca = new JTextField(200);
 		valorKm = new JTextField(6);
-		//listaLojas = new JComboBox<String>(listaNomeLojas);
 		valorDesc = new JTextField(200);
 		listaLojas = new JComboBox<Loja>(dados.getLojas());
 		listaLojas.setSelectedIndex(-1);
@@ -128,6 +140,8 @@ public class TelaCarro implements ActionListener{
 		botSalvar.addActionListener(this);
 		
 		}
+		
+		//Parâmetros para gerar a TelaCarro de um carro ja cadastrado
 		else if(op==2) {
 			valorMarca = new JTextField(dados.getCarros()[pos].getMarca(),200);
 			valorModelo = new JTextField(dados.getCarros()[pos].getModelo(),200);
@@ -208,20 +222,29 @@ public class TelaCarro implements ActionListener{
 		
 	}
 
-
+	//Método que reconhece alguma ação realizada na interface gráfica
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		//Armazena o objeto que sofreu ação, nesse caso o botão "Salvar" ou "Excluir"
 		Object src = e.getSource();
+		
+		//Caso a ação foi apertar o botão "Salvar"
 		if(src == botSalvar) {
-			
+				
+				//Caso seja um carro novo
 				if(opcao == 1) {
+					//A posição do novo carro será a quantidade de carros cadastrados
 					novoDado[0] = Integer.toString(dados.getQtdCarros());	
 				}
 				
+				//Caso seja a edição de um carro ja cadastrado
 				else {
+					//Armazana a posição do carro no Array de Carro
 					novoDado[0]=Integer.toString(posicao);
 				}
+				
+				//Armazena as informações preenchidas do carro
 				novoDado[1] = valorMarca.getText();
 				novoDado[2] = valorModelo.getText();
 				novoDado[3] = valorAno.getText();
@@ -229,13 +252,19 @@ public class TelaCarro implements ActionListener{
 				novoDado[5] = valorPlaca.getText();
 				novoDado[6] = valorDesc.getText();
 				novoDado[7] = valorKm.getText();
+				//Armazenando a loja que foi selecionada para recever o carro no JComboBox lojaEscolhida
 				lojaEscolhida = (Loja) listaLojas.getSelectedItem();
+				//Chamando o metodo que inser ou edita um carro da Classe ControleDados
 				dados.inserirEditarCarro(novoDado,lojaEscolhida);
+				//Fecha a TelaCarro para voltar a TelaListVendas
 				janela.dispose();
 		}	
-				
+		
+		//Caso a ação foi apertar o botão "Excluir"
 		if(src== botExcluir) {
+			//Chamando o método que apaga um caro e passando como parâmentro a posição do carro em questão
 			dados.apagarCarro(posicao);
+			//Fecha a TelaCarro para voltar a TelaListVendas
 			janela.dispose();
 		}
 	}

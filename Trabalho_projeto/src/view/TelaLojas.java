@@ -10,14 +10,21 @@ import control.ControleLoja;
 
 import java.awt.Font;
 import java.awt.event.*;
-
+/**
+ * Classe TelaLojas cria a interface gráfica da tela que mostra a lista de lojas cadastradas no programa
+ * @author Gabriel Zaranza
+ *
+ */
 public class TelaLojas implements ActionListener, ListSelectionListener{
 	private JFrame janela = new JFrame("Lista Lojas");
 	private JLabel titulo = new JLabel("Lojas cadastradas");
 	private JList<String> listaLojaCadastradas ;
 	private static ControleDados dados;
 	private String[] listaNomesLojas = new String[50];
-	
+	/**
+	 * Contrutor da Classe TelaLojas
+	 * @param d a Classe ControleDados que controla os dados do programa
+	 */
 	public void mostrarDados(ControleDados d) {
 		dados =d;
 		
